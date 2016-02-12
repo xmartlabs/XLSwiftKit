@@ -1,14 +1,14 @@
 //
-//  XLSwiftKitTests.swift
-//  XLSwiftKitTests
+//  XLSwiftKitTest.swift
+//  XLSwiftKitTest
 //
-//  Copyright © 2016 Xmartlabs SRL. All rights reserved.
+//  Created by mathias Claassen on 12/2/16.
+//
 //
 
 import XCTest
-@testable import XLSwiftKit
 
-class XLSwiftKitTests: XCTestCase {
+class XLSwiftKitTest: XCTestCase {
     
     override func setUp() {
         super.setUp()

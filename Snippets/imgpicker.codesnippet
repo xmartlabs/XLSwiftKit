@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>imgpicker</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>var overlayView : UIView? = nil
+    
+    func showImagePicker(sourceType: UIImagePickerControllerSourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.modalPresentationStyle = .CurrentContext
+        imagePickerController.sourceType = sourceType
+        imagePickerController.delegate = self
+        
+        if sourceType == .Camera {
+            imagePickerController.showsCameraControls = false
+            imagePickerController.cameraOverlayView = overlayView
+        }
+        
+        presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        dismissViewControllerAnimated(true) {
+            image?.saveToCameraRoll() { [weak self] succeded in
+                let alert : UIAlertController
+                if succeded {
+                    alert = UIAlertController(title: "Image saved to camera roll", message: "", preferredStyle: .Alert)
+                } else {
+                    alert = UIAlertController(title: "Image couldn't be saved to camera roll", message: "", preferredStyle: .Alert)
+                }
+                alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in
+                })
+                self?.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true) { [weak self] in
+            let alert = UIAlertController(title: "Cancelled action", message: "", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in
+                
+            })
+            self?.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>69CE3DF6-792C-4D57-BF92-19A6EEF5E393</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Show image picker and UIImagePickerControllerDelegate implementation</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Iimage picker controller delegate</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
