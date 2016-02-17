@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension UIDevice {
+public extension UIDevice {
     func maxScreenLength() -> CGFloat {
         let bounds = UIScreen.mainScreen().bounds
         return max(bounds.width, bounds.height)

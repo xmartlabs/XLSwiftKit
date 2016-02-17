@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension UIFont {
+public extension UIFont {
     public func heightForString(string: NSString, width: CGFloat) -> CGFloat {
         let size = CGSizeMake(width, 5000)
         let s = string.boundingRectWithSize(size, options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: self], context: nil)

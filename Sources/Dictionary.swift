@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     mutating func merge(dict: [Key: Value]) {
         for (k, v) in dict {
             self.updateValue(v, forKey: k)
