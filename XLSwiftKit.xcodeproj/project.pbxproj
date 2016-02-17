@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		28F828811C494B2C00330CF4 /* XLSwiftKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 28F828801C494B2C00330CF4 /* XLSwiftKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28F828881C494B2C00330CF4 /* XLSwiftKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F8287D1C494B2C00330CF4 /* XLSwiftKit.framework */; };
+		BF68CCC21C74F2A5006BE94B /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68CCC11C74F2A5006BE94B /* Box.swift */; };
 		BF7E0BDE1C6E53F300D831DD /* Appearances.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E0BC71C6E53F300D831DD /* Appearances.swift */; };
 		BF7E0BDF1C6E53F300D831DD /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E0BC81C6E53F300D831DD /* NSDate.swift */; };
 		BF7E0BE01C6E53F300D831DD /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E0BC91C6E53F300D831DD /* UIApplication.swift */; };
@@ -58,6 +59,7 @@
 		28F828871C494B2C00330CF4 /* XLSwiftKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XLSwiftKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F8288E1C494B2C00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
 		28F8289B1C494BF100330CF4 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; };
+		BF68CCC11C74F2A5006BE94B /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		BF7E0BB91C6E53E400D831DD /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateTests.swift; path = Tests/NSDateTests.swift; sourceTree = SOURCE_ROOT; };
 		BF7E0BBA1C6E53E400D831DD /* NumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberTests.swift; path = Tests/NumberTests.swift; sourceTree = SOURCE_ROOT; };
 		BF7E0BBB1C6E53E400D831DD /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringTests.swift; path = Tests/StringTests.swift; sourceTree = SOURCE_ROOT; };
@@ -212,6 +214,7 @@
 				BF7E0BC71C6E53F300D831DD /* Appearances.swift */,
 				BF7E0BCE1C6E53F300D831DD /* Constants.swift */,
 				BF7E0BD11C6E53F300D831DD /* GCDHelper.swift */,
+				BF68CCC11C74F2A5006BE94B /* Box.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				BF7E0BDF1C6E53F300D831DD /* NSDate.swift in Sources */,
 				BF7E0BEE1C6E53F300D831DD /* UIColor.swift in Sources */,
 				BF7E0BE31C6E53F300D831DD /* UIViewController.swift in Sources */,
+				BF68CCC21C74F2A5006BE94B /* Box.swift in Sources */,
 				BF7E0BE41C6E53F300D831DD /* AFImageExtension.swift in Sources */,
 				BF7E0BF21C6E53F300D831DD /* UIWindow.swift in Sources */,
 				BF7E0BEC1C6E53F300D831DD /* Dictionary.swift in Sources */,
