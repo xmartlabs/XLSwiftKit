@@ -14,6 +14,10 @@ public extension UIDevice {
         return max(bounds.width, bounds.height)
     }
     
+    func iPhone4() -> Bool {
+        return maxScreenLength() == 480
+    }
+    
     func iPhone5() -> Bool {
         return maxScreenLength() == 568
     }
