@@ -130,4 +130,19 @@ class StringTests: XCTestCase {
         let factor = CGFloat(pow(10.0, Double(digits)))
         return (round(value * factor) / factor)
     }
+    
+    //MARK: Test first last name 
+    func testFirstLastName() {
+        let string = "Sir Alex Ferguson"
+        let name = string.getFirstAndLastName()
+        XCTAssertNotNil(name)
+        XCTAssertEqual(name?.0, "Sir Alex")
+        XCTAssertEqual(name?.1, "Ferguson")
+    }
+    
+    func testFirstLastNameEmpty() {
+        let string = "Ferguson  "
+        let name = string.getFirstAndLastName()
+        XCTAssertNil(name)
+    }
 }

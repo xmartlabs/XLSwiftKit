@@ -54,4 +54,14 @@ public extension String {
         return boundingRect.height
     }
     
+    func getFirstAndLastName() -> (String,String)?{
+        guard let range = stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).rangeOfString(" ", options: .BackwardsSearch,
+            range: nil, locale: nil) else {
+            return nil
+        }
+        let first = substringToIndex(range.startIndex)
+        let last = substringFromIndex(range.endIndex)
+        return (first,last)
+    }
+    
 }
