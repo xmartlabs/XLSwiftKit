@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UIViewController {
-    public func showError(title: String, message: String) {
+    public func showError(title: String, message: String? = nil) {
         if !NSThread.currentThread().isMainThread {
             dispatch_async(dispatch_get_main_queue()) { [weak self] in
                 self?.showError(title, message: message)
