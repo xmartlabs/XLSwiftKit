@@ -32,10 +32,26 @@ public extension UIApplication {
         return base
     }
     
-    public class func makePhoneCall(phoneNumber: String) -> Bool {
+    public static func makePhoneCall(phoneNumber: String) -> Bool {
         guard let phoneNumberUrl = NSURL(string: phoneNumber) where UIApplication.sharedApplication().canOpenURL(phoneNumberUrl) else {
             return false
         }
         return UIApplication.sharedApplication().openURL(phoneNumberUrl)
+    }
+    
+    public static var bundleIdentifier: String {
+        return NSBundle.mainBundle().bundleIdentifier!
+    }
+    
+    public static var buildVersion: String {
+        return NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String
+    }
+    
+    public static var appVersion: String {
+        return NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+    }
+    
+    public static var bundleName: String {
+        return NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String
     }
 }
