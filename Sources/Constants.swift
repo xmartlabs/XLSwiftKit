@@ -12,20 +12,6 @@ public struct Constants {
     
     public struct Formatters {
         
-        static let iso8601DateFormatter: NSDateFormatter = {
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
-            
-            return formatter
-        }()
-        
-        static let iso8601Formatter: NSDateFormatter = {
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
-            
-            return formatter
-        }()
-
         static let monthDateFormatter: NSDateFormatter = {
             let formatter = NSDateFormatter()
             formatter.dateFormat = "MMMM"

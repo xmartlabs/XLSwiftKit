@@ -36,7 +36,6 @@ public extension UIApplication {
         guard let phoneNumberUrl = NSURL(string: phoneNumber) where UIApplication.sharedApplication().canOpenURL(phoneNumberUrl) else {
             return false
         }
-        
         return UIApplication.sharedApplication().openURL(phoneNumberUrl)
     }
 }

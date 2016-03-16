@@ -19,7 +19,7 @@ public extension UIViewController {
         
         let controller = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         controller.view.tintColor = UIWindow.appearance().tintColor
-        controller.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+        controller.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Cancel, handler: nil))
         presentViewController(controller, animated: true, completion: nil)
     }
 }

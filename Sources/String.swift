@@ -42,10 +42,6 @@ public extension String {
         return nil
     }
     
-    func ISO8601Date() -> NSDate? {
-        return Constants.Formatters.iso8601Formatter.dateFromString(self)
-    }
-    
     func renderedHeightWithFont(font: UIFont, width: CGFloat) -> CGFloat {
         let size = CGSizeMake(width, 5000)
         let attributes = [NSFontAttributeName: font]

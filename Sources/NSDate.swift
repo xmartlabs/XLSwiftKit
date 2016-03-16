@@ -10,14 +10,6 @@ import Foundation
 
 public extension NSDate {
 
-    func ISO8601String() -> String {
-        return Constants.Formatters.iso8601Formatter.stringFromDate(self)
-    }
-
-    func ISO8601DateString() -> String {
-        return Constants.Formatters.iso8601DateFormatter.stringFromDate(self)
-    }
-    
     func isOver18Years() -> Bool {
         let comp = NSCalendar.currentCalendar().components(NSCalendarUnit.Month.union(.Day).union(.Year), fromDate: NSDate())
         comp.year -= 18
@@ -27,7 +19,6 @@ public extension NSDate {
                 return false
             }
         }
-        
         return true
     }
 
