@@ -24,7 +24,7 @@
 
 import Foundation
 
-func JSONStringify(value: AnyObject, prettyPrinted: Bool = true) -> String {
+public func JSONStringify(value: AnyObject, prettyPrinted: Bool = true) -> String {
     let options: NSJSONWritingOptions = prettyPrinted ? .PrettyPrinted : []
     if NSJSONSerialization.isValidJSONObject(value) {
         if let data = try? NSJSONSerialization.dataWithJSONObject(value, options: options), let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
