@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28A6B9C81CB5E28700682BCE /* NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6B9C71CB5E28700682BCE /* NSData.swift */; };
+		28A6B9CA1CB5E3D300682BCE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6B9C91CB5E3D300682BCE /* Helpers.swift */; };
 		28F828811C494B2C00330CF4 /* XLSwiftKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 28F828801C494B2C00330CF4 /* XLSwiftKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28F828881C494B2C00330CF4 /* XLSwiftKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F8287D1C494B2C00330CF4 /* XLSwiftKit.framework */; };
 		BF68CCC21C74F2A5006BE94B /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68CCC11C74F2A5006BE94B /* Box.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28A6B9C71CB5E28700682BCE /* NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSData.swift; sourceTree = "<group>"; };
+		28A6B9C91CB5E3D300682BCE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		28F8287D1C494B2C00330CF4 /* XLSwiftKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XLSwiftKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F828801C494B2C00330CF4 /* XLSwiftKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLSwiftKit.h; sourceTree = "<group>"; };
 		28F828821C494B2C00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 		BF7E0BF91C6E54A900D831DD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				28A6B9C71CB5E28700682BCE /* NSData.swift */,
 				BF7E0BC81C6E53F300D831DD /* NSDate.swift */,
 				BF7E0BC91C6E53F300D831DD /* UIApplication.swift */,
 				BF7E0BCA1C6E53F300D831DD /* UINavigationBar.swift */,
@@ -215,6 +220,7 @@
 				BF7E0BCE1C6E53F300D831DD /* Constants.swift */,
 				BF7E0BD11C6E53F300D831DD /* GCDHelper.swift */,
 				BF68CCC11C74F2A5006BE94B /* Box.swift */,
+				28A6B9C91CB5E3D300682BCE /* Helpers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -345,10 +351,12 @@
 				BF7E0BEC1C6E53F300D831DD /* Dictionary.swift in Sources */,
 				BF7E0BF01C6E53F300D831DD /* UIFont.swift in Sources */,
 				BF7E0BEA1C6E53F300D831DD /* UITable.swift in Sources */,
+				28A6B9CA1CB5E3D300682BCE /* Helpers.swift in Sources */,
 				BF7E0BE01C6E53F300D831DD /* UIApplication.swift in Sources */,
 				BF7E0BE71C6E53F300D831DD /* String.swift in Sources */,
 				BF7E0BE91C6E53F300D831DD /* UIImage.swift in Sources */,
 				BF7E0BE11C6E53F300D831DD /* UINavigationBar.swift in Sources */,
+				28A6B9C81CB5E28700682BCE /* NSData.swift in Sources */,
 				BF7E0BDE1C6E53F300D831DD /* Appearances.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
