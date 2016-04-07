@@ -61,7 +61,7 @@ public extension UIImage {
         if let completion = completion {
             UIImage.saveToCameraRollCompletions[self] = completion
         }
-        UIImageWriteToSavedPhotosAlbum(self, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
+        UIImageWriteToSavedPhotosAlbum(self, self, #selector(UIImage.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
 
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo: UnsafePointer<()>) {

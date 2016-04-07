@@ -24,6 +24,9 @@
 
 import Foundation
 
-func toJSON() -> AnyObject? {
-    return try? NSJSONSerialization.JSONObjectWithData(self, options: .AllowFragments)
+extension NSData {
+    
+    public func toJSON() -> AnyObject? {
+        return try? NSJSONSerialization.JSONObjectWithData(self, options: .AllowFragments)
+    }
 }

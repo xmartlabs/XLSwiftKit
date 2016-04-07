@@ -9,6 +9,7 @@
 import Foundation
 
 public extension String {
+    
     func isValidAsEmail() -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
@@ -16,9 +17,7 @@ public extension String {
     }
     
     func isValidAsPhone() -> Bool {
-        
         let phoneRegEx = "^[0-9-+]{9,15}$"
-        
         let phoneTest = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
         return phoneTest.evaluateWithObject(self)
     }
@@ -26,18 +25,13 @@ public extension String {
     func isNumberString() -> Bool {
         let charSet = NSMutableCharacterSet(charactersInString: "-")
         charSet.formUnionWithCharacterSet(NSCharacterSet.decimalDigitCharacterSet())
-        if self.rangeOfCharacterFromSet(charSet.invertedSet) == nil {
-            return true
-        }
-        return false
+        return  rangeOfCharacterFromSet(charSet.invertedSet) == nil
     }
     
     func findFirstNumberInString() -> String? {
-        if let range = self.rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet()) {
-            if let numRange = rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet, options: .LiteralSearch,
-                range: Range(start: range.startIndex, end: self.endIndex)) {
-                return substringWithRange(Range(start: range.startIndex, end: numRange.startIndex))
-            }
+        if let range = rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet()), let numRange = rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet, options: .LiteralSearch,
+                range: range.startIndex..<self.endIndex) {
+                return substringWithRange(range.startIndex..<numRange.startIndex)
         }
         return nil
     }

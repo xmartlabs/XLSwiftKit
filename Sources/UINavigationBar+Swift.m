@@ -9,7 +9,7 @@
 
 + (instancetype)swiftAppearanceWhenContainedIn:(Class<UIAppearanceContainer>)containerClass
 {
-    return [self appearanceWhenContainedIn:containerClass, nil];
+    return [self appearanceWhenContainedInInstancesOfClasses:@[containerClass]];
 }
 
 @end
