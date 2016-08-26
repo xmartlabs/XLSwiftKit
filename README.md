@@ -13,14 +13,14 @@ By [Xmartlabs SRL](http://xmartlabs.com).
 
 ## Inroduction
 
-XLSwiftKit is a collection of helpers and extensions we use internally. It is a constantly being updated with new snippets. Feel free to use it or contribute.
+XLSwiftKit is a collection of helpers and extensions we use internally. It is a constantly being updated with new snippets. Feel free to use it or to contribute.
+You can see a list of helper functions and extensions [here](#implemented-functions). Please keep that list updated if you add new functions
 
 ## Usage
 
 ```swift
 import XLSwiftKit
-..
-.
+// your code using XLSwiftKit
 ```
 
 ## Requirements
@@ -62,6 +62,131 @@ To install XLSwiftKit, simply add the following line to your Cartfile:
 ```ogdl
 github "xmartlabs/XLSwiftKit" ~> 1.0
 ```
+
+## Implemented functions
+
+This is a list of the helper functions and extensions implemented in this pod.
+
+### Extensions
+	
+#### NSData
+
+* `func toJSON() -> AnyObject?`: serializes a NSData object to JSON representation
+	
+#### NSDate
+
+* `func isOver18Years() -> Bool`: returns if a date is over 18 years ago
+* `func monthName() -> String`: returns the month of a date in `MMMM` format
+* `func year() -> String`: returns the year of a date in `yyyy` format
+* `func day() -> String`: returns the day of a date in `dd` format
+
+#### UIApplication
+
+* `class func topViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController?`: returns the top most view controller in the view hierarchy considering a base rootViewController. 
+* `static func changeRootViewController(rootViewController: UIViewController, animated: Bool = true, from: UIViewController? = nil, completion: ((Bool) -> Void)? = nil)`: changes the rootViewController of the applications main window
+* `static func changeRootViewControllerAfterDismiss(from: UIViewController? = nil, to: UIViewController, completion: ((Bool) -> Void)? = nil)`: Same as the previous one but dismisses the current view controller before changing root view controller
+* `static func makePhoneCall(phoneNumber: String) -> Bool`: Creates a NSURL with the phoneNumber parameter and opens the URL if possible.
+* `var bundleIdentifier: String`
+* `var buildVersion: String`
+* `var appVersion: String`
+* `var bundleName: String`
+
+#### UINavigationBar
+
+* `func setTransparent(transparent: Bool)`: Makes the navigationBar transparent or not
+* `func shake(duration: CFTimeInterval = 0.3)`: Executes a shake animation on a view
+* `func spin(duration: CFTimeInterval, rotations: CGFloat, repeatCount: Float)`: Spins a view around its z axis
+* `static public func verticalStackView(views: [UIView], alignLeading: Bool = true, alignTrailing: Bool = true, frame: CGRect? = nil, width: CGFloat = UIScreen.mainScreen().bounds.width) -> UIView`: returns a view containing the views passed as parameter as if it was a vertical stack view (putting all views vertically one after the other). Thought to be a iOS 8 alternative to real UIStackViews
+
+#### UIViewController
+
+* `func showError(title: String, message: String? = nil)`: shows an UIAlertController alert with error title and message
+
+#### Double and Int
+
+* `func currencyString() -> String?`: Returns a formatted currency String from an Int or Double. Currency formatter used is defined under `Constants.Formatters.currencyFormatter`
+
+#### String
+
+* `func isValidAsEmail() -> Bool`: Returns if a string is valid as email
+* `func isValidAsPhone() -> Bool`: Returns if a string is valid as phone number
+* `func isNumberString() -> Bool`: Returns if a string is composed just of numbers or '-' symbol
+* `func findFirstNumberInString() -> String?`: Returns the first number in a String if found
+* `func renderedHeightWithFont(font: UIFont, width: CGFloat) -> CGFloat`: Return the height necessary for a text given a width and font size. Same as `heightForString` extension on UIFont
+* `func getFirstAndLastName() -> (String,String)?`: Parses a first and a last name from a String. Takes last whitespace as separator for these values.
+
+#### UIImage
+
+* `init(color: UIColor, size: CGSize = CGSize(width: 1, height: 1))`
+* `init(view: UIView)`
+* `init(image: UIImage, scaledToSize: CGSize)`
+* `class func imageWithColor(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage`
+* `class func imageWithView(view: UIView) -> UIImage`
+* `class func imageWithImage(image: UIImage, scaledToSize size: CGSize) -> UIImage`: Returns a new image scaled to desired size
+* `func imageScaledToSize(size: CGSize) -> UIImage`: Same as previous
+* `func saveToCameraRoll(completion: ((succeded: Bool) -> Void)? = nil)`: Saves an image to Saved Photos Album
+
+
+#### UITableView
+
+* `func setFooterWithSpacing(view: UIView)`: Adds a footer to a tableView that covers the rest of the screen.
+
+#### Dictionary
+
+* `mutating func merge(dict: [Key: Value])`: Merges two dictionaries of the same Key and Value type
+
+#### UIColor 
+
+* `init(red: Int, green: Int, blue: Int)`: Creates a color from RGB values between 0 and 255
+* `init(netHex:Int)`: Creates a color from a Hexa string
+
+#### UIDevice
+
+* `func maxScreenLength() -> CGFloat`: Returns the maximum screen length of the current device
+
+The following helpers return if the device is of certain type depending on the devices `maxScreenLength`
+* `func iPhone4() -> Bool`
+* `func iPhone5() -> Bool`
+* `func iPhone6() -> Bool`
+* `func iPhone6Plus() -> Bool`
+
+Other helpers:
+* `fontSizeForDevice(size: CGFloat, q6: CGFloat = 0.94, q5: CGFloat = 0.86, q4: CGFloat = 0.80) -> CGFloat`: Returns the suggested font size for every device (iPhone only).
+
+#### UIFont
+
+* `func heightForString(string: NSString, width: CGFloat) -> CGFloat`: Return the height necessary for a text given a width and font size. Same as `renderedHeightWithFont` extension on String
+
+
+### Helpers
+
+#### Constraints
+
+* `func suggestedVerticalConstraint(value: CGFloat, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.65) -> CGFloat`: Scale a value for a vertical constraint constant depending on the current device. Works for iPhone apps only. All coefficients have reasonable default values for vertical constraints
+* `func suggestedHorizontalConstraint(value: CGFloat, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.77) -> CGFloat`: Scale a value for a horizontal constraint constant depending on the current device. Works for iPhone apps only. All coefficients have reasonable default values for horizontal constraints
+
+#### Appearances
+
+This is a publis struct with functions inside:
+* `static func removeBackImageIndicatorFromNavigationBar()`: Removes the navigation bars backIndicator image
+
+#### GCDHelper
+
+* `static let mainQueue: dispatch_queue_t`: Returns the main queue
+* `static let backgroundQueue: dispatch_queue_t`: Returns a background queue
+* `static func delay(delay: Double, block: () -> ())`: Executes a block after a given delay
+* `static func runOnMainThread(block: () -> ())`: Executes a block on the main thread
+* `static func runOnBackgroundThread(block: () -> ())`: Executes a block on the background queue
+* `static func synced(lock: AnyObject, closure: () -> ())`: Locks an object
+
+#### Box
+
+Box is a Wrapper: e.g. Used to wrap any structs in a class so that they can be used where AnyObject is required
+
+#### Others
+
+* `public func JSONStringify(value: AnyObject, prettyPrinted: Bool = true) -> String`: Converts a JSON object to a printable String 
+
 
 ## Author
 

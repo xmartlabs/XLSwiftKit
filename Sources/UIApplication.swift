@@ -3,8 +3,26 @@
 //  XLFoundationSwiftKit
 //
 //  Created by mathias Claassen on 24/11/15.
-//  Copyright © 2015 Xmartlabs. All rights reserved.
+//  Copyright (c) 2016 Xmartlabs SRL ( http://xmartlabs.com )
 //
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 import UIKit
 
@@ -30,6 +48,39 @@ public extension UIApplication {
         }
         
         return base
+    }
+
+    static public func changeRootViewController(rootViewController: UIViewController, animated: Bool = true, from: UIViewController? = nil, completion: ((Bool) -> Void)? = nil) {
+        let window = UIApplication.sharedApplication().keyWindow
+        if let window = window where animated {
+            UIView.transitionWithView(window, duration: 0.5, options: .TransitionCrossDissolve, animations: {
+                let oldState: Bool = UIView.areAnimationsEnabled()
+                UIView.setAnimationsEnabled(false)
+                window.rootViewController = rootViewController
+                window.makeKeyAndVisible()
+                UIView.setAnimationsEnabled(oldState)
+                }, completion: completion)
+        } else {
+            window?.rootViewController = rootViewController
+        }
+    }
+
+    /**
+     Change rootViewController of main window after dismissing current controller ( if current controller was presented). This avoids keeping unused view controllers in hidden windows
+
+     - parameter from:       UIViewController from which to start the switch
+     - parameter to:         UIViewController to be set as new rootViewController
+     - parameter completion: Handler to be executed when controller switch finishes
+     */
+    static public func changeRootViewControllerAfterDismiss(from: UIViewController? = nil, to: UIViewController, completion: ((Bool) -> Void)? = nil) {
+        if let presenting = from?.presentingViewController {
+            presenting.view.alpha = 0
+            from?.dismissViewControllerAnimated(false, completion: {
+                changeRootViewController(to, completion: completion)
+            })
+        } else {
+            changeRootViewController(to, completion: completion)
+        }
     }
     
     public static func makePhoneCall(phoneNumber: String) -> Bool {

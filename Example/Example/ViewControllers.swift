@@ -67,6 +67,10 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         }
     }
 
+    @IBAction func changeRootViewController(sender: AnyObject) {
+        let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewRootViewController")
+        UIApplication.changeRootViewController(navigationController)
+    }
 
 }
 
@@ -89,8 +93,7 @@ class TransparentNavigationBarViewController: UIViewController {
 }
 
 class AnimationsViewController: UIViewController {
-    
-    
+
     @IBAction func shakeButtonDidTouch(sender: AnyObject) {
         sender.shake(0.3)
     }
@@ -99,4 +102,12 @@ class AnimationsViewController: UIViewController {
         sender.spin(0.5, rotations: 2.0, repeatCount: 2.0)
     }
     
+}
+
+class NewRootViewController: UIViewController {
+
+    @IBAction func buttonTapped(sender: AnyObject) {
+        let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
+        UIApplication.changeRootViewController(navigationController)
+    }
 }
