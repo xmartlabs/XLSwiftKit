@@ -21,7 +21,6 @@ extension UIView: CustomViewAnimations {
         animation.values =  [0, 20, -20, 10, 0]
         animation.keyTimes = [0, (1 / 6.0), (3 / 6.0), (5 / 6.0), 1]
         animation.duration = duration
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         animation.additive = true
         
         layer.addAnimation(animation, forKey:"shake")
