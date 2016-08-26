@@ -24,6 +24,7 @@
 
 import Foundation
 
+/// Converts a JSON object to a printable String
 public func JSONStringify(value: AnyObject, prettyPrinted: Bool = true) -> String {
     let options: NSJSONWritingOptions = prettyPrinted ? .PrettyPrinted : []
     if NSJSONSerialization.isValidJSONObject(value) {

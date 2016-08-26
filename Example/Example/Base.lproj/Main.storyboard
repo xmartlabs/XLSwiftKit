@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bWW-V7-gX9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bWW-V7-gX9">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,18 +24,25 @@
                                     <segue destination="th4-V7-NSy" kind="show" id="xbb-ZS-JLc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bal-qz-hnm">
+                                <rect key="frame" x="235" y="194" width="130" height="30"/>
+                                <state key="normal" title="Show image picker"/>
+                                <connections>
+                                    <action selector="showImagePickerButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d1r-wL-hy0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZG-gK-IVU">
+                                <rect key="frame" x="205" y="239" width="190" height="30"/>
+                                <state key="normal" title="Change root view controller"/>
+                                <connections>
+                                    <action selector="changeRootViewController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vEC-ae-YNw"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oQ-i5-2fh">
                                 <rect key="frame" x="180" y="149" width="241" height="30"/>
                                 <state key="normal" title="Push VC with Animations Examples"/>
                                 <connections>
                                     <segue destination="epf-y1-wQt" kind="show" id="hNT-OZ-lOP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bal-qz-hnm">
-                                <rect key="frame" x="235" y="187" width="130" height="30"/>
-                                <state key="normal" title="Show image picker"/>
-                                <connections>
-                                    <action selector="showImagePickerButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d1r-wL-hy0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -44,9 +51,11 @@
                             <constraint firstItem="2oQ-i5-2fh" firstAttribute="centerX" secondItem="6pt-ys-VVl" secondAttribute="centerX" id="2J4-Ya-dfK"/>
                             <constraint firstItem="2oQ-i5-2fh" firstAttribute="top" secondItem="6pt-ys-VVl" secondAttribute="bottom" constant="15" id="6ta-s1-Hbs"/>
                             <constraint firstItem="6pt-ys-VVl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="BNE-7p-JWE"/>
-                            <constraint firstItem="bal-qz-hnm" firstAttribute="top" secondItem="2oQ-i5-2fh" secondAttribute="bottom" constant="8" id="DjM-nh-HOx"/>
+                            <constraint firstItem="bal-qz-hnm" firstAttribute="top" secondItem="2oQ-i5-2fh" secondAttribute="bottom" constant="15" id="DjM-nh-HOx"/>
+                            <constraint firstItem="bZG-gK-IVU" firstAttribute="top" secondItem="bal-qz-hnm" secondAttribute="bottom" constant="15" id="O2E-Cs-9Mm"/>
                             <constraint firstItem="bal-qz-hnm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bdg-ld-dxM"/>
                             <constraint firstItem="6pt-ys-VVl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i0Q-JJ-9F7"/>
+                            <constraint firstItem="bZG-gK-IVU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jvN-TW-47y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="View Controller" id="SoR-qN-8nn"/>
@@ -54,6 +63,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1219" y="732"/>
+        </scene>
+        <!--New Root View Controller-->
+        <scene sceneID="gbR-K7-qvg">
+            <objects>
+                <viewController storyboardIdentifier="NewRootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kni-hb-FL0" customClass="NewRootViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ECY-sM-8hh"/>
+                        <viewControllerLayoutGuide type="bottom" id="c4I-D1-KOP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rys-NP-tf5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEj-ub-3hc">
+                                <rect key="frame" x="249" y="285" width="103" height="30"/>
+                                <state key="normal" title="Change back...">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="kni-hb-FL0" eventType="touchUpInside" id="SNf-2w-H0Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AEj-ub-3hc" firstAttribute="centerY" secondItem="Rys-NP-tf5" secondAttribute="centerY" id="30S-ef-uRU"/>
+                            <constraint firstItem="AEj-ub-3hc" firstAttribute="centerX" secondItem="Rys-NP-tf5" secondAttribute="centerX" id="G2R-R7-it4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sT1-w1-BRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="842" y="1508"/>
         </scene>
         <!--Transparent Navigation Bar-->
         <scene sceneID="v52-Ap-xb5">
