@@ -68,11 +68,11 @@ github "xmartlabs/XLSwiftKit" ~> 1.0
 This is a list of the helper functions and extensions implemented in this pod.
 
 ### Extensions
-	
+
 #### NSData
 
 * `func toJSON() -> AnyObject?`: serializes a NSData object to JSON representation
-	
+
 #### NSDate
 
 * `func isOver18Years() -> Bool`: returns if a date is over 18 years ago
@@ -82,7 +82,7 @@ This is a list of the helper functions and extensions implemented in this pod.
 
 #### UIApplication
 
-* `class func topViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController?`: returns the top most view controller in the view hierarchy considering a base rootViewController. 
+* `class func topViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController?`: returns the top most view controller in the view hierarchy considering a base rootViewController.
 * `static func changeRootViewController(rootViewController: UIViewController, animated: Bool = true, from: UIViewController? = nil, completion: ((Bool) -> Void)? = nil)`: changes the rootViewController of the applications main window
 * `static func changeRootViewControllerAfterDismiss(from: UIViewController? = nil, to: UIViewController, completion: ((Bool) -> Void)? = nil)`: Same as the previous one but dismisses the current view controller before changing root view controller
 * `static func makePhoneCall(phoneNumber: String) -> Bool`: Creates a NSURL with the phoneNumber parameter and opens the URL if possible.
@@ -114,6 +114,9 @@ This is a list of the helper functions and extensions implemented in this pod.
 * `func findFirstNumberInString() -> String?`: Returns the first number in a String if found
 * `func renderedHeightWithFont(font: UIFont, width: CGFloat) -> CGFloat`: Return the height necessary for a text given a width and font size. Same as `heightForString` extension on UIFont
 * `func getFirstAndLastName() -> (String,String)?`: Parses a first and a last name from a String. Takes last whitespace as separator for these values.
+* By conforming the `String` type to `ParametrizedString` protocol and specifying a parameter format like `"{i}"`:
+	* `func parametrize(parameters: CustomStringConvertible...) -> String`: Replace `"{i}"` substring with the i-th element of `parameters`. For example: `"Hey {0}! It's been {1} years!".parametrize("Arnold", 3)` gives you `"Hey Arnold! It's been 3 years!"`
+	* `parametrize(withDictonary dictonary: [Int: CustomStringConvertible]) -> String`: Same behaviour as above but specifying the parameters as a dictonary.
 
 #### UIImage
 
@@ -130,12 +133,13 @@ This is a list of the helper functions and extensions implemented in this pod.
 #### UITableView
 
 * `func setFooterWithSpacing(view: UIView)`: Adds a footer to a tableView that covers the rest of the screen.
+* `func reloadDataAnimated(duration: NSTimeInterval = 0.4, completion: (() -> ())?)`: Performs a `reloadData` call using a cross-dissolve transition.
 
 #### Dictionary
 
 * `mutating func merge(dict: [Key: Value])`: Merges two dictionaries of the same Key and Value type
 
-#### UIColor 
+#### UIColor
 
 * `init(red: Int, green: Int, blue: Int)`: Creates a color from RGB values between 0 and 255
 * `init(netHex:Int)`: Creates a color from a Hexa string
@@ -183,9 +187,21 @@ This is a publis struct with functions inside:
 
 Box is a Wrapper: e.g. Used to wrap any structs in a class so that they can be used where AnyObject is required
 
+#### Views
+
+* `RoundedView`, `RoundedImageView` and `RoundedButton` are subclasses of `UIView`, `UIImageView` and `UIButton` with a rounded appearance.
+* `GradientView` renders a gradient from an array of colors and a direction specified by the `colors` and `direction` properties. It spreads the colors evenly through the space.
+* `OwnerView` is intended to wrap xib views in order to reuse them in storyboards and also instantiate them in code.
+	* Usage
+		* Create a subclass of `OwnerView`
+		* Set it as the File's Owner of your xib.
+		* Connect your xib's view outlets to your subclass if any.
+		* Override `func viewForContent() -> UIView?` to provide the xib's view.
+		* Override `func setup()` to initialize the view. Your xib's view will be accessible through the `contentView` property.
+
 #### Others
 
-* `public func JSONStringify(value: AnyObject, prettyPrinted: Bool = true) -> String`: Converts a JSON object to a printable String 
+* `public func JSONStringify(value: AnyObject, prettyPrinted: Bool = true) -> String`: Converts a JSON object to a printable String
 
 
 ## Author

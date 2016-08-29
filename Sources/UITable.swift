@@ -59,4 +59,16 @@ public extension UITableView {
         }
     }
 
+    func reloadDataAnimated(duration: NSTimeInterval = 0.4, completion: (() -> ())?) {
+        UIView.transitionWithView(
+            self,
+            duration: duration,
+            options: .TransitionCrossDissolve,
+            animations: { [weak self] _ in
+                self?.reloadData()
+            },
+            completion: { _ in completion }
+        )
+    }
+
 }
