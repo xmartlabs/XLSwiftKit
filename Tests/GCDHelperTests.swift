@@ -11,17 +11,17 @@ import XCTest
 @testable import XLSwiftKit
 
 class GCDHelperTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testDelay() {
         let before = NSDate()
         GCDHelper.delay(0.5) {
@@ -29,7 +29,7 @@ class GCDHelperTests: XCTestCase {
             XCTAssertEqual(delay, 0.5)
         }
     }
-    
+
     func testRunOnMainThread() {
         GCDHelper.runOnBackgroundThread() {
             GCDHelper.runOnMainThread() {
@@ -37,18 +37,18 @@ class GCDHelperTests: XCTestCase {
             }
         }
     }
-    
+
     func testRunOnBackgroundThread() {
         GCDHelper.runOnBackgroundThread() {
             XCTAssertFalse(NSThread.isMainThread())
         }
     }
-    
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
 }

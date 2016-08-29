@@ -27,26 +27,27 @@
 import Foundation
 
 public extension UITableView {
-    
+
     func setFooterWithSpacing(view: UIView) {
-        
+
         guard self.numberOfSections > 0 else {
             self.tableFooterView = view
             return
         }
-        
+
         guard let cell = self.cellForRowAtIndexPath(NSIndexPath(forRow: self.numberOfRowsInSection(self.numberOfSections - 1) - 1,
             inSection: self.numberOfSections - 1)) else {
                 self.tableFooterView = view
                 return
         }
-        
+
         let cellY = cell.frame.origin.y
         let footerContainerY = cellY + cell.frame.height
         let footerContainerHeight = UIScreen.mainScreen().bounds.height - footerContainerY
-        
+
         if footerContainerHeight > 0 {
-            let footerContainerView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, footerContainerHeight))
+            let frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: footerContainerHeight)
+            let footerContainerView = UIView(frame: frame)
             footerContainerView.backgroundColor = .clearColor()
             let viewY = footerContainerHeight - view.frame.height
             view.frame.origin.y = viewY
@@ -57,4 +58,5 @@ public extension UITableView {
             self.tableFooterView = view
         }
     }
+
 }

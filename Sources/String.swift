@@ -51,7 +51,7 @@ public extension String {
 
     /// Returns the first number in a String if found
     func findFirstNumberInString() -> String? {
-        if let range = rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet()), let numRange = rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet, options: .LiteralSearch,
+        if let range = rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet()), numRange = rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet, options: .LiteralSearch,
                 range: range.startIndex..<self.endIndex) {
                 return substringWithRange(range.startIndex..<numRange.startIndex)
         }
@@ -60,7 +60,7 @@ public extension String {
 
     /// Return the height necessary for a text given a width and font size. Same as `heightForString` extension on UIFont
     func renderedHeightWithFont(font: UIFont, width: CGFloat) -> CGFloat {
-        let size = CGSizeMake(width, 5000)
+        let size = CGSize(width: width, height: 5000)
         let attributes = [NSFontAttributeName: font]
         let objcStr = NSString(string: self)
         let boundingRect = objcStr.boundingRectWithSize(size, options: .UsesLineFragmentOrigin, attributes: attributes, context: nil)
@@ -68,14 +68,14 @@ public extension String {
     }
 
     /// Parses a first and a last name from a String. Takes last whitespace as separator for these values.
-    func getFirstAndLastName() -> (String,String)? {
+    func getFirstAndLastName() -> (String, String)? {
         guard let range = stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).rangeOfString(" ", options: .BackwardsSearch,
             range: nil, locale: nil) else {
             return nil
         }
         let first = substringToIndex(range.startIndex)
         let last = substringFromIndex(range.endIndex)
-        return (first,last)
+        return (first, last)
     }
-    
+
 }

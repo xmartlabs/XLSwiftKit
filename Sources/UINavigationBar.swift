@@ -27,7 +27,7 @@
 import Foundation
 
 public extension UINavigationBar {
-    
+
     public func setTransparent(transparent: Bool) {
         if transparent {
             setBackgroundImage(UIImage(), forBarMetrics: .Default)

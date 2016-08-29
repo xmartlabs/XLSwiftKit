@@ -32,11 +32,11 @@ public struct GCDHelper {
     public static let mainQueue: dispatch_queue_t = {
        return dispatch_get_main_queue()
     }()
-    
+
     public static let backgroundQueue: dispatch_queue_t = {
         return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
     }()
-    
+
     public static func delay(delay: Double, block: () -> ()) {
         dispatch_after(
             dispatch_time(
@@ -45,11 +45,11 @@ public struct GCDHelper {
             ),
             GCDHelper.mainQueue, block)
     }
-    
+
     public static func runOnMainThread(block: () -> ()) {
         dispatch_async(GCDHelper.mainQueue, block)
     }
-    
+
     public static func runOnBackgroundThread(block: () -> ()) {
         dispatch_async(GCDHelper.backgroundQueue, block)
     }
@@ -59,4 +59,5 @@ public struct GCDHelper {
         closure()
         objc_sync_exit(lock)
     }
+
 }

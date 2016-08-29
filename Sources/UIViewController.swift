@@ -27,7 +27,7 @@
 import Foundation
 
 public extension UIViewController {
-    
+
     /// shows an UIAlertController alert with error title and message
     public func showError(title: String, message: String? = nil) {
         if !NSThread.currentThread().isMainThread {
@@ -36,10 +36,11 @@ public extension UIViewController {
             }
             return
         }
-        
+
         let controller = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         controller.view.tintColor = UIWindow.appearance().tintColor
         controller.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Cancel, handler: nil))
         presentViewController(controller, animated: true, completion: nil)
     }
+
 }
