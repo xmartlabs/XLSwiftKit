@@ -27,8 +27,10 @@
 import Foundation
 
 public protocol CustomViewAnimations {
+
     func shake(duration: CFTimeInterval)
     func spin(duration: CFTimeInterval, rotations: CGFloat, repeatCount: Float)
+
 }
 
 extension UIView: CustomViewAnimations {
@@ -40,7 +42,7 @@ extension UIView: CustomViewAnimations {
         animation.keyTimes = [0, (1 / 6.0), (3 / 6.0), (5 / 6.0), 1]
         animation.duration = duration
         animation.additive = true
-        
+
         layer.addAnimation(animation, forKey:"shake")
     }
 
@@ -50,9 +52,10 @@ extension UIView: CustomViewAnimations {
         animation.duration = duration
         animation.cumulative = true
         animation.repeatCount = repeatCount
-        
+
         layer.addAnimation(animation, forKey:"rotationAnimation")
     }
+
 }
 
 public extension UIView {
@@ -71,7 +74,7 @@ public extension UIView {
      */
     static public func verticalStackView(views: [UIView], alignLeading: Bool = true, alignTrailing: Bool = true, frame: CGRect? = nil,
                                   width: CGFloat = UIScreen.mainScreen().bounds.width) -> UIView {
-        guard views.count > 0 else { return UIView(frame: frame ?? .zero) }
+        guard !views.isEmpty else { return UIView(frame: frame ?? .zero) }
         let view = UIView(frame: frame ?? CGRect(x: 0, y: 0, width: width, height: views.reduce(0, combine: { $0 + $1.frame.height })))
 
         // add views as subviews
@@ -108,4 +111,5 @@ public extension UIView {
 
         return view
     }
+
 }

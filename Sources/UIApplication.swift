@@ -32,21 +32,21 @@ public extension UIApplication {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }
-        
+
         if let tab = base as? UITabBarController {
             let moreNavigationController = tab.moreNavigationController
-            
+
             if let top = moreNavigationController.topViewController where top.view.window != nil {
                 return topViewController(top)
             } else if let selected = tab.selectedViewController {
                 return topViewController(selected)
             }
         }
-        
+
         if let presented = base?.presentedViewController {
             return topViewController(presented)
         }
-        
+
         return base
     }
 
@@ -82,27 +82,30 @@ public extension UIApplication {
             changeRootViewController(to, completion: completion)
         }
     }
-    
+
     public static func makePhoneCall(phoneNumber: String) -> Bool {
         guard let phoneNumberUrl = NSURL(string: phoneNumber) where UIApplication.sharedApplication().canOpenURL(phoneNumberUrl) else {
             return false
         }
         return UIApplication.sharedApplication().openURL(phoneNumberUrl)
     }
-    
+
     public static var bundleIdentifier: String {
         return NSBundle.mainBundle().bundleIdentifier!
     }
-    
+
+    // swiftlint:disable force_cast
     public static var buildVersion: String {
         return NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String
     }
-    
+
     public static var appVersion: String {
         return NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
     }
-    
+
     public static var bundleName: String {
         return NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String
     }
+    // swiftlint:enable force_cast
+
 }

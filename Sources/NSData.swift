@@ -25,8 +25,9 @@
 import Foundation
 
 extension NSData {
-    
+
     public func toJSON() -> AnyObject? {
         return try? NSJSONSerialization.JSONObjectWithData(self, options: .AllowFragments)
     }
+
 }

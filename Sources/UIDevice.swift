@@ -27,29 +27,31 @@
 import Foundation
 
 public extension UIDevice {
+
     func maxScreenLength() -> CGFloat {
         let bounds = UIScreen.mainScreen().bounds
         return max(bounds.width, bounds.height)
     }
-    
+
     func iPhone4() -> Bool {
         return maxScreenLength() == 480
     }
-    
+
     func iPhone5() -> Bool {
         return maxScreenLength() == 568
     }
-    
+
     func iPhone6() -> Bool {
         return maxScreenLength() == 667
     }
-    
+
     func iPhone6Plus() -> Bool {
         return maxScreenLength() == 736
     }
 
     /**
-     Resize a font according to current device. Works for iPhone apps only. The desired font size will be multiplied by the coefficient for the corresponding current device. All coefficients have reasonable default values
+     Resize a font according to current device. Works for iPhone apps only. The desired font size will be multiplied by the coefficient for the corresponding current device.
+     All coefficients have reasonable default values.
 
      - parameter size: Desired font size for iPhone6 Plus device type (or any other with the same size)
      - parameter q6:   iPhone6 coefficient
