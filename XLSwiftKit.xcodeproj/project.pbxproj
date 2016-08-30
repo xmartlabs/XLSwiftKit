@@ -11,6 +11,10 @@
 		28A6B9CA1CB5E3D300682BCE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6B9C91CB5E3D300682BCE /* Helpers.swift */; };
 		28F828811C494B2C00330CF4 /* XLSwiftKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 28F828801C494B2C00330CF4 /* XLSwiftKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28F828881C494B2C00330CF4 /* XLSwiftKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F8287D1C494B2C00330CF4 /* XLSwiftKit.framework */; };
+		46BD3DF51D74B61C00D93B2F /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BD3DF41D74B61C00D93B2F /* RoundedView.swift */; };
+		46BD3DF71D74B8D100D93B2F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BD3DF61D74B8D100D93B2F /* GradientView.swift */; };
+		46BD3DFA1D74BF8200D93B2F /* OwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BD3DF91D74BF8200D93B2F /* OwnerView.swift */; };
+		46BD3DFE1D74CCAF00D93B2F /* ParametrizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BD3DFD1D74CCAF00D93B2F /* ParametrizedString.swift */; };
 		BF68CCC21C74F2A5006BE94B /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68CCC11C74F2A5006BE94B /* Box.swift */; };
 		BF7E0BDE1C6E53F300D831DD /* Appearances.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E0BC71C6E53F300D831DD /* Appearances.swift */; };
 		BF7E0BDF1C6E53F300D831DD /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E0BC81C6E53F300D831DD /* NSDate.swift */; };
@@ -61,6 +65,10 @@
 		28F828821C494B2C00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28F828871C494B2C00330CF4 /* XLSwiftKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XLSwiftKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F8288E1C494B2C00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
+		46BD3DF41D74B61C00D93B2F /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		46BD3DF61D74B8D100D93B2F /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		46BD3DF91D74BF8200D93B2F /* OwnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerView.swift; sourceTree = "<group>"; };
+		46BD3DFD1D74CCAF00D93B2F /* ParametrizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParametrizedString.swift; sourceTree = "<group>"; };
 		BF68CCC11C74F2A5006BE94B /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		BF7E0BB91C6E53E400D831DD /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateTests.swift; path = Tests/NSDateTests.swift; sourceTree = SOURCE_ROOT; };
 		BF7E0BBA1C6E53E400D831DD /* NumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberTests.swift; path = Tests/NumberTests.swift; sourceTree = SOURCE_ROOT; };
@@ -159,6 +167,7 @@
 		28F828971C494B4200330CF4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				46BD3DF31D74B5E700D93B2F /* Views */,
 				BF7E0BF91C6E54A900D831DD /* Extensions */,
 				BF7E0BFA1C6E54AF00D831DD /* Helpers */,
 				BF7E0BF81C6E54A100D831DD /* Obj-C */,
@@ -167,6 +176,16 @@
 				BF7E0BDD1C6E53F300D831DD /* XLFoundationSwiftKit.h */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		46BD3DF31D74B5E700D93B2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				46BD3DF41D74B61C00D93B2F /* RoundedView.swift */,
+				46BD3DF61D74B8D100D93B2F /* GradientView.swift */,
+				46BD3DF91D74BF8200D93B2F /* OwnerView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		BF7E0BF81C6E54A100D831DD /* Obj-C */ = {
@@ -196,6 +215,7 @@
 				BF7E0BD71C6E53F300D831DD /* UIColor.swift */,
 				BF7E0BD81C6E53F300D831DD /* UIDevice.swift */,
 				BF7E0BD91C6E53F300D831DD /* UIFont.swift */,
+				46BD3DFD1D74CCAF00D93B2F /* ParametrizedString.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -341,12 +361,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7E0BEB1C6E53F300D831DD /* UINavigationBar+Swift.m in Sources */,
+				46BD3DF71D74B8D100D93B2F /* GradientView.swift in Sources */,
 				BF7E0BE81C6E53F300D831DD /* GCDHelper.swift in Sources */,
 				BF7E0BE61C6E53F300D831DD /* Numbers.swift in Sources */,
 				BF7E0BEF1C6E53F300D831DD /* UIDevice.swift in Sources */,
 				BF7E0BE21C6E53F300D831DD /* UIView.swift in Sources */,
 				BF7E0BE51C6E53F300D831DD /* Constants.swift in Sources */,
 				BF7E0BDF1C6E53F300D831DD /* NSDate.swift in Sources */,
+				46BD3DFA1D74BF8200D93B2F /* OwnerView.swift in Sources */,
 				BF7E0BEE1C6E53F300D831DD /* UIColor.swift in Sources */,
 				BF7E0BE31C6E53F300D831DD /* UIViewController.swift in Sources */,
 				BF68CCC21C74F2A5006BE94B /* Box.swift in Sources */,
@@ -355,11 +377,13 @@
 				BF7E0BF01C6E53F300D831DD /* UIFont.swift in Sources */,
 				BF7E0BEA1C6E53F300D831DD /* UITable.swift in Sources */,
 				28A6B9CA1CB5E3D300682BCE /* Helpers.swift in Sources */,
+				46BD3DFE1D74CCAF00D93B2F /* ParametrizedString.swift in Sources */,
 				BF7E0BE01C6E53F300D831DD /* UIApplication.swift in Sources */,
 				BF7E0BE71C6E53F300D831DD /* String.swift in Sources */,
 				BF7E0BE91C6E53F300D831DD /* UIImage.swift in Sources */,
 				BF7E0BE11C6E53F300D831DD /* UINavigationBar.swift in Sources */,
 				28A6B9C81CB5E28700682BCE /* NSData.swift in Sources */,
+				46BD3DF51D74B61C00D93B2F /* RoundedView.swift in Sources */,
 				BF7E0BDE1C6E53F300D831DD /* Appearances.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

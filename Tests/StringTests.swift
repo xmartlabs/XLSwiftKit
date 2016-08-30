@@ -135,4 +135,50 @@ class StringTests: XCTestCase {
         XCTAssertNil(name)
     }
 
+    //MARK: Test Parametrized String
+    func testStringParameters() {
+        let string = "Hey {0}, do you want to {1}?"
+        let expected = "Hey dude, do you want to play tennis?"
+        XCTAssert(string.parametrize("dude", "play tennis") == expected)
+        XCTAssert(string.parametrize("dude", "play tennis", "will not show") == expected)
+        XCTAssert(string.parametrize(withDictonary: [0: "dude", 1: "play tennis"]) == expected)
+        XCTAssert(string.parametrize(withDictonary: [4: "will not show", 0: "dude", 1: "play tennis"]) == expected)
+    }
+
+    func testStringEmptyParameters() {
+        var string = "Hey {0}, do you want to {1}?"
+        XCTAssert(string.parametrize() == string)
+        XCTAssert(string.parametrize(withDictonary: [:]) == string)
+        XCTAssert(string.parametrize(withDictonary: [4: "will not show", 5: NSDate()]) == string)
+
+        string = "No parameters"
+        XCTAssert(string.parametrize(1, 2, 3, "hi!") == string)
+        XCTAssert(string.parametrize(withDictonary: [-1: "nothing", 4: "will not show", 5: NSDate()]) == string)
+
+    }
+
+    func testStringConvertibleParameters() {
+        var string = "It's been about {0} years now."
+        var expected = "It's been about 3 years now."
+        XCTAssert(string.parametrize(3) == expected)
+        XCTAssert(string.parametrize(withDictonary: [0: 3]) == expected)
+
+        let now = NSDate()
+        string = "{1} > {0}?"
+        expected = "2.3 > \(now)?"
+        XCTAssert(string.parametrize(now, 2.3) == expected)
+        XCTAssert(string.parametrize(withDictonary: [0: now, 1: 2.3]) == expected)
+    }
+
+}
+
+// We need to actively conform to the ParametrizedString protocol
+// in order to use the .parametrize(...) function.
+
+extension String: ParametrizedString {
+
+    public var parameterFormat: String {
+        return "{i}"
+    }
+
 }
