@@ -35,7 +35,7 @@ public struct Appearances {
 
         // Example on how position text within backbutton, for example to remove the extra left padding from
         // button when tno back indicator image is used
-        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -20, vertical: 0), forBarMetrics: .Default)
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -20, vertical: 0), for: .default)
     }
 
 }

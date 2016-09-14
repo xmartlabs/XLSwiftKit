@@ -28,32 +28,32 @@ import Foundation
 
 public protocol CustomViewAnimations {
 
-    func shake(duration: CFTimeInterval)
-    func spin(duration: CFTimeInterval, rotations: CGFloat, repeatCount: Float)
+    func shake(_ duration: CFTimeInterval)
+    func spin(_ duration: CFTimeInterval, rotations: CGFloat, repeatCount: Float)
 
 }
 
 extension UIView: CustomViewAnimations {
 
-    public func shake(duration: CFTimeInterval = 0.3) {
+    public func shake(_ duration: CFTimeInterval = 0.3) {
         let animation = CAKeyframeAnimation()
         animation.keyPath = "position.x"
         animation.values =  [0, 20, -20, 10, 0]
-        animation.keyTimes = [0, (1 / 6.0), (3 / 6.0), (5 / 6.0), 1]
+        animation.keyTimes = [0, NSNumber(value: 1 / 6.0), NSNumber(value: 3 / 6.0), NSNumber(value: 5 / 6.0), 1]
         animation.duration = duration
-        animation.additive = true
+        animation.isAdditive = true
 
-        layer.addAnimation(animation, forKey:"shake")
+        layer.add(animation, forKey:"shake")
     }
 
-    public func spin(duration: CFTimeInterval, rotations: CGFloat, repeatCount: Float) {
+    public func spin(_ duration: CFTimeInterval, rotations: CGFloat, repeatCount: Float) {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.toValue = M_PI * 2.0 * Double(rotations)
         animation.duration = duration
-        animation.cumulative = true
+        animation.isCumulative = true
         animation.repeatCount = repeatCount
 
-        layer.addAnimation(animation, forKey:"rotationAnimation")
+        layer.add(animation, forKey:"rotationAnimation")
     }
 
 }
@@ -72,10 +72,10 @@ public extension UIView {
 
      - returns: A view with the stacked views.
      */
-    static public func verticalStackView(views: [UIView], alignLeading: Bool = true, alignTrailing: Bool = true, frame: CGRect? = nil,
-                                  width: CGFloat = UIScreen.mainScreen().bounds.width) -> UIView {
+    static public func verticalStackView(_ views: [UIView], alignLeading: Bool = true, alignTrailing: Bool = true, frame: CGRect? = nil,
+                                  width: CGFloat = UIScreen.main.bounds.width) -> UIView {
         guard !views.isEmpty else { return UIView(frame: frame ?? .zero) }
-        let view = UIView(frame: frame ?? CGRect(x: 0, y: 0, width: width, height: views.reduce(0, combine: { $0 + $1.frame.height })))
+        let view = UIView(frame: frame ?? CGRect(x: 0, y: 0, width: width, height: views.reduce(0, { $0 + $1.frame.height })))
 
         // add views as subviews
         _ = views.map { view.addSubview($0); $0.translatesAutoresizingMaskIntoConstraints = false }
@@ -83,10 +83,10 @@ public extension UIView {
         // define options
         var options = NSLayoutFormatOptions()
         if alignLeading {
-            options = options.union(NSLayoutFormatOptions.AlignAllLeading)
+            options = options.union(NSLayoutFormatOptions.alignAllLeading)
         }
         if alignTrailing {
-            options = options.union(NSLayoutFormatOptions.AlignAllTrailing)
+            options = options.union(NSLayoutFormatOptions.alignAllTrailing)
         }
 
         // create constraints
@@ -95,19 +95,19 @@ public extension UIView {
             let firstView = views[index]
             let secondView = views[index + 1]
 
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[first]-0-[second]", options: options, metrics: nil, views: ["first": firstView, "second": secondView]))
+            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[first]-0-[second]", options: options, metrics: nil, views: ["first": firstView, "second": secondView]))
             index += 1
         }
 
         // add constraints for first and last view
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[first]", options: options,
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[first]", options: options,
             metrics: nil, views: ["first": views.first!]))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[last]-0-|", options: options,
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[last]-0-|", options: options,
             metrics: nil, views: ["last": views.last!]))
 
         // add width constraint
-        view.addConstraint(NSLayoutConstraint(item: views.first!, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .Width, multiplier: 1, constant: width))
-        view.addConstraint(NSLayoutConstraint(item: view, attribute: .Width, relatedBy: .Equal, toItem: views.first, attribute: .Width, multiplier: 1, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: views.first!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width))
+        view.addConstraint(NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: views.first, attribute: .width, multiplier: 1, constant: 0))
 
         return view
     }

@@ -29,9 +29,9 @@ import UIKit
 
 public extension UIFont {
 
-    public func heightForString(string: NSString, width: CGFloat) -> CGFloat {
+    public func heightForString(_ string: NSString, width: CGFloat) -> CGFloat {
         let size = CGSize(width: width, height: 5000)
-        let boundingRect = string.boundingRectWithSize(size, options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: self], context: nil)
+        let boundingRect = string.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: self], context: nil)
         return boundingRect.height
     }
 

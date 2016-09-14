@@ -96,7 +96,7 @@ class StringTests: XCTestCase {
     }
 
     func testRenderedHeight() {
-        let font = UIFont.systemFontOfSize(17)
+        let font = UIFont.systemFont(ofSize: 17)
         let testString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
 
         let lineHeight = CGFloat(20.287109)
@@ -104,18 +104,18 @@ class StringTests: XCTestCase {
 
         // Just one line
         let h1 = testString.renderedHeightWithFont(font, width: 2000)
-        XCTAssertEqual(round(value: lineHeight), round(value: h1))
+        XCTAssertEqual(round(lineHeight), round(h1))
 
         // Two lines of text
         let h2 = testString.renderedHeightWithFont(font, width: 1000)
-        XCTAssertEqual(round(value: lineHeight * 2), round(value: h2))
+        XCTAssertEqual(round(lineHeight * 2), round(h2))
 
         // Many lines of text
         let h3 = testString.renderedHeightWithFont(font, width: 100)
-        XCTAssertEqual(round(value: 18 * lineHeight), round(value: h3))
+        XCTAssertEqual(round(18 * lineHeight), round(h3))
     }
 
-    private func roundTo(digits: Int) -> (value: CGFloat) -> CGFloat {
+    fileprivate func roundTo(_ digits: Int) -> (_ value: CGFloat) -> CGFloat {
         let factor = CGFloat(pow(10.0, Double(digits)))
         return { (round($0 * factor) / factor) }
     }
@@ -149,11 +149,11 @@ class StringTests: XCTestCase {
         var string = "Hey {0}, do you want to {1}?"
         XCTAssert(string.parametrize() == string)
         XCTAssert(string.parametrize(withDictonary: [:]) == string)
-        XCTAssert(string.parametrize(withDictonary: [4: "will not show", 5: NSDate()]) == string)
+        XCTAssert(string.parametrize(withDictonary: [4: "will not show", 5: Date()]) == string)
 
         string = "No parameters"
         XCTAssert(string.parametrize(1, 2, 3, "hi!") == string)
-        XCTAssert(string.parametrize(withDictonary: [-1: "nothing", 4: "will not show", 5: NSDate()]) == string)
+        XCTAssert(string.parametrize(withDictonary: [-1: "nothing", 4: "will not show", 5: Date()]) == string)
 
     }
 
@@ -163,7 +163,7 @@ class StringTests: XCTestCase {
         XCTAssert(string.parametrize(3) == expected)
         XCTAssert(string.parametrize(withDictonary: [0: 3]) == expected)
 
-        let now = NSDate()
+        let now = Date()
         string = "{1} > {0}?"
         expected = "2.3 > \(now)?"
         XCTAssert(string.parametrize(now, 2.3) == expected)

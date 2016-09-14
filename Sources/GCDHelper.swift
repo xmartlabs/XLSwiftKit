@@ -29,32 +29,28 @@ import Foundation
 /** Helpers to easily use Grand Central Dispatch functions */
 public struct GCDHelper {
 
-    public static let mainQueue: dispatch_queue_t = {
-       return dispatch_get_main_queue()
+    public static let mainQueue: DispatchQueue = {
+       return DispatchQueue.main
     }()
 
-    public static let backgroundQueue: dispatch_queue_t = {
-        return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
+    public static let backgroundQueue: DispatchQueue = {
+        return DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
     }()
 
-    public static func delay(delay: Double, block: () -> ()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            GCDHelper.mainQueue, block)
+    public static func delay(_ delay: Double, block: @escaping () -> ()) {
+        GCDHelper.mainQueue.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: block)
     }
 
-    public static func runOnMainThread(block: () -> ()) {
-        dispatch_async(GCDHelper.mainQueue, block)
+    public static func runOnMainThread(_ block: @escaping () -> ()) {
+        GCDHelper.mainQueue.async(execute: block)
     }
 
-    public static func runOnBackgroundThread(block: () -> ()) {
-        dispatch_async(GCDHelper.backgroundQueue, block)
+    public static func runOnBackgroundThread(_ block: @escaping () -> ()) {
+        GCDHelper.backgroundQueue.async(execute: block)
     }
 
-    public static func synced(lock: AnyObject, closure: () -> ()) {
+    public static func synced(_ lock: AnyObject, closure: () -> ()) {
         objc_sync_enter(lock)
         closure()
         objc_sync_exit(lock)

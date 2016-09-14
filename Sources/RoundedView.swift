@@ -25,7 +25,7 @@
 
 import Foundation
 
-public class RoundedView: UIView {
+open class RoundedView: UIView {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,18 +37,18 @@ public class RoundedView: UIView {
         setup()
     }
 
-    private func setup() {
+    fileprivate func setup() {
         clipsToBounds = true
     }
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.width / 2
     }
 
 }
 
-public class RoundedButton: UIButton {
+open class RoundedButton: UIButton {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,18 +60,18 @@ public class RoundedButton: UIButton {
         setup()
     }
 
-    private func setup() {
+    fileprivate func setup() {
         clipsToBounds = true
     }
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.width / 2
     }
 
 }
 
-public class RoundedImageView: UIImageView {
+open class RoundedImageView: UIImageView {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -83,11 +83,11 @@ public class RoundedImageView: UIImageView {
         setup()
     }
 
-    private func setup() {
+    fileprivate func setup() {
         clipsToBounds = true
     }
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.width / 2
     }

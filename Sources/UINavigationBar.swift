@@ -28,18 +28,18 @@ import Foundation
 
 public extension UINavigationBar {
 
-    public func setTransparent(transparent: Bool) {
+    public func setTransparent(_ transparent: Bool) {
         if transparent {
-            setBackgroundImage(UIImage(), forBarMetrics: .Default)
+            setBackgroundImage(UIImage(), for: .default)
             shadowImage = UIImage()
-            translucent = true
-            backgroundColor = .clearColor()
+            isTranslucent = true
+            backgroundColor = .clear
         } else {
             // By default take values from UINavigationBar appearance
-            let backImage = UINavigationBar.appearance().backgroundImageForBarMetrics(.Default)
-            setBackgroundImage(backImage, forBarMetrics: .Default)
+            let backImage = UINavigationBar.appearance().backgroundImage(for: .default)
+            setBackgroundImage(backImage, for: .default)
             shadowImage = UINavigationBar.appearance().shadowImage
-            translucent = UINavigationBar.appearance().translucent
+            isTranslucent = UINavigationBar.appearance().isTranslucent
             backgroundColor = UINavigationBar.appearance().backgroundColor
         }
     }

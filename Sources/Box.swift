@@ -28,9 +28,9 @@ import Foundation
 
 /** Box is a Wrapper: e.g. Used to wrap any structs in a class so that they can be used where AnyObject is required
 */
-public class Box<T> {
+open class Box<T> {
 
-    public let value: T?
+    open let value: T?
 
     public init(_ value: T) {
         self.value = value

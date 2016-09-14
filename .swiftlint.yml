@@ -28,7 +28,7 @@ disabled_rules: # rule identifiers to exclude from running
   # - trailing_semicolon
   # - trailing_whitespace
   # - type_body_length
-  # - type_name
+  - type_name
   - valid_docs
   # - variable_name
 opt_in_rules: # some rules are only opt-in

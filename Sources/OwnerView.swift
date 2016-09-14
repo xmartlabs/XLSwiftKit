@@ -25,9 +25,9 @@
 
 import Foundation
 
-public class OwnerView: UIView {
+open class OwnerView: UIView {
 
-    public var contentView: UIView!
+    open var contentView: UIView!
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,24 +39,24 @@ public class OwnerView: UIView {
         setupContentView()
     }
 
-    private func setupContentView() {
+    fileprivate func setupContentView() {
         contentView = viewForContent()
         guard let contentView = contentView else { return }
         contentView.frame = bounds
         contentView.clipsToBounds = false
         contentView.translatesAutoresizingMaskIntoConstraints = true
-        contentView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
+        contentView.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
         addSubview(contentView)
-        backgroundColor = .clearColor()
+        backgroundColor = .clear
         setup()
     }
 
-    public func viewForContent() -> UIView? {
+    open func viewForContent() -> UIView? {
         // customization point
         return nil
     }
 
-    public func setup() {
+    open func setup() {
         // customization point
     }
 

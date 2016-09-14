@@ -28,17 +28,17 @@ class UIImageTests: XCTestCase {
         XCTAssertEqual(image.size.width, 2)
         XCTAssertEqual(image.size.height, 2)
 
-        let pixelData = CGDataProviderCopyData(CGImageGetDataProvider(image.CGImage))
+        let pixelData = (image.cgImage)?.dataProvider?.data
         let data = CFDataGetBytePtr(pixelData)
 
-        for pixel in 0.stride(to: Int(image.size.width * image.size.height), by: 4) {
-            let blue = CGFloat(data[pixel + 0]),
-            green = CGFloat(data[pixel + 1]),
-            red = CGFloat(data[pixel + 2])
+        for pixel in stride(from: 0, to: Int(image.size.width * image.size.height), by: 4) {
+            let blue = CGFloat((data?[pixel + 0])!),
+            green = CGFloat((data?[pixel + 1])!),
+            red = CGFloat((data?[pixel + 2])!)
 
             let maxValue = CGFloat(255)
             let round = roundTo(2)
-            let imageColor = UIColor(red: round(value: red / maxValue), green: round(value: green / maxValue), blue: round(value: blue / maxValue), alpha: 1.0)
+            let imageColor = UIColor(red: round(red / maxValue), green: round(green / maxValue), blue: round(blue / maxValue), alpha: 1.0)
             XCTAssertEqual(testColor, imageColor)
         }
     }
@@ -49,15 +49,15 @@ class UIImageTests: XCTestCase {
         label.sizeToFit()
 
         let image = UIImage.imageWithView(label)
-        let scale = UIScreen.mainScreen().scale
+        let scale = UIScreen.main.scale
         XCTAssertEqual(label.frame.width, CGFloat(image.size.width / scale))
         XCTAssertEqual(label.frame.height, CGFloat(image.size.height / scale))
     }
 
     func testImageWithImage() {
-        let image = UIImage.imageWithColor(.redColor(), size: CGSize(width: 128, height: 128))
+        let image = UIImage.imageWithColor(.red, size: CGSize(width: 128, height: 128))
         let scaledImage = image.imageScaledToSize(CGSize(width: 32, height: 64))
-        let scale = UIScreen.mainScreen().scale
+        let scale = UIScreen.main.scale
 
         XCTAssertEqual(scaledImage.size.width, 32 * scale)
         XCTAssertEqual(scaledImage.size.height, 64 * scale)
@@ -69,14 +69,14 @@ class UIImageTests: XCTestCase {
     }
 
     func testSaveToCameraRoll() {
-        let image = UIImage.imageWithColor(.redColor())
+        let image = UIImage.imageWithColor(.red)
         image.saveToCameraRoll()
         XCTAssertTrue(true)
         image.saveToCameraRoll() { _ in }
         XCTAssertTrue(true)
     }
 
-    private func roundTo(digits: Int) -> (value: CGFloat) -> CGFloat {
+    fileprivate func roundTo(_ digits: Int) -> (_ value: CGFloat) -> CGFloat {
         let factor = CGFloat(pow(10.0, Double(digits)))
         return { (round($0 * factor) / factor) }
     }
