@@ -16,57 +16,57 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
 
-    @IBAction func showImagePickerButtonDidTouch(sender: AnyObject) {
-        showImagePicker(.SavedPhotosAlbum)
+    @IBAction func showImagePickerButtonDidTouch(_ sender: AnyObject) {
+        showImagePicker(.savedPhotosAlbum)
     }
 
     var overlayView: UIView? = nil
 
-    func showImagePicker(sourceType: UIImagePickerControllerSourceType) {
+    func showImagePicker(_ sourceType: UIImagePickerControllerSourceType) {
         let imagePickerController = UIImagePickerController()
-        imagePickerController.modalPresentationStyle = .CurrentContext
+        imagePickerController.modalPresentationStyle = .currentContext
         imagePickerController.sourceType = sourceType
         imagePickerController.delegate = self
 
-        if sourceType == .Camera {
+        if sourceType == .camera {
             imagePickerController.showsCameraControls = false
             imagePickerController.cameraOverlayView = overlayView
         }
 
-        presentViewController(imagePickerController, animated: true, completion: nil)
+        present(imagePickerController, animated: true, completion: nil)
     }
 
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        dismissViewControllerAnimated(true) {
+        dismiss(animated: true) {
             image?.saveToCameraRoll() { [weak self] succeded in
                 let alert: UIAlertController
                 if succeded {
-                    alert = UIAlertController(title: "Image saved to camera roll", message: "", preferredStyle: .Alert)
+                    alert = UIAlertController(title: "Image saved to camera roll", message: "", preferredStyle: .alert)
                 } else {
-                    alert = UIAlertController(title: "Image couldn't be saved to camera roll", message: "", preferredStyle: .Alert)
+                    alert = UIAlertController(title: "Image couldn't be saved to camera roll", message: "", preferredStyle: .alert)
                 }
-                alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in
+                alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
                     })
-                self?.presentViewController(alert, animated: true, completion: nil)
+                self?.present(alert, animated: true, completion: nil)
             }
         }
     }
 
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true) { [weak self] in
-            let alert = UIAlertController(title: "Cancelled action", message: "", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-            self?.presentViewController(alert, animated: true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true) { [weak self] in
+            let alert = UIAlertController(title: "Cancelled action", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+            self?.present(alert, animated: true, completion: nil)
         }
     }
 
-    @IBAction func changeRootViewController(sender: AnyObject) {
-        let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewRootViewController")
+    @IBAction func changeRootViewController(_ sender: AnyObject) {
+        let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewRootViewController")
         UIApplication.changeRootViewController(navigationController)
     }
 
@@ -78,13 +78,13 @@ class TransparentNavigationBarViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         navigationController?.navigationBar.setTransparent(true)
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.setTransparent(false)
     }
@@ -93,11 +93,11 @@ class TransparentNavigationBarViewController: UIViewController {
 
 class AnimationsViewController: UIViewController {
 
-    @IBAction func shakeButtonDidTouch(sender: AnyObject) {
+    @IBAction func shakeButtonDidTouch(_ sender: AnyObject) {
         sender.shake(0.3)
     }
 
-    @IBAction func spinButtonDidTouch(sender: AnyObject) {
+    @IBAction func spinButtonDidTouch(_ sender: AnyObject) {
         sender.spin(0.5, rotations: 2.0, repeatCount: 2.0)
     }
 
@@ -105,7 +105,7 @@ class AnimationsViewController: UIViewController {
 
 class NewRootViewController: UIViewController {
 
-    @IBAction func buttonTapped(sender: AnyObject) {
+    @IBAction func buttonTapped(_ sender: AnyObject) {
         let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
         UIApplication.changeRootViewController(navigationController)
     }

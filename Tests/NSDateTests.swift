@@ -22,47 +22,47 @@ class NSDateTests: XCTestCase {
     }
 
     func testIsOver18YearTrue() {
-        let dateComps = NSDateComponents()
+        var dateComps = DateComponents()
         dateComps.year = 1994
         dateComps.month = 8
         dateComps.day = 6
-        let date = NSCalendar.currentCalendar().dateFromComponents(dateComps)!
+        let date = Calendar.current.date(from: dateComps)!
         XCTAssert(date.isOver18Years())
     }
 
     func testIsOver18YearFalse() {
-        let dateComps = NSDateComponents()
+        var dateComps = DateComponents()
         dateComps.year = 2014
         dateComps.month = 8
         dateComps.day = 6
-        let date = NSCalendar.currentCalendar().dateFromComponents(dateComps)!
+        let date = Calendar.current.date(from: dateComps)!
         XCTAssert(!date.isOver18Years())
     }
 
     func testYearString() {
-        let dateComps = NSDateComponents()
+        var dateComps = DateComponents()
         dateComps.year = 1994
         dateComps.month = 8
         dateComps.day = 6
-        let date = NSCalendar.currentCalendar().dateFromComponents(dateComps)!
+        let date = Calendar.current.date(from: dateComps)!
         XCTAssertEqual(date.year(), "1994")
     }
 
     func testMonthNameString() {
-        let dateComps = NSDateComponents()
+        var dateComps = DateComponents()
         dateComps.year = 1994
         dateComps.month = 8
         dateComps.day = 6
-        let date = NSCalendar.currentCalendar().dateFromComponents(dateComps)!
+        let date = Calendar.current.date(from: dateComps)!
         XCTAssertEqual(date.monthName(), "August")
     }
 
     func testDayString() {
-        let dateComps = NSDateComponents()
+        var dateComps = DateComponents()
         dateComps.year = 1994
         dateComps.month = 8
         dateComps.day = 6
-        let date = NSCalendar.currentCalendar().dateFromComponents(dateComps)!
+        let date = Calendar.current.date(from: dateComps)!
         XCTAssertEqual(date.day(), "06")
     }
 

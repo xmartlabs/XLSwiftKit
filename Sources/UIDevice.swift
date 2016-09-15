@@ -29,7 +29,7 @@ import Foundation
 public extension UIDevice {
 
     func maxScreenLength() -> CGFloat {
-        let bounds = UIScreen.mainScreen().bounds
+        let bounds = UIScreen.main.bounds
         return max(bounds.width, bounds.height)
     }
 
@@ -60,7 +60,7 @@ public extension UIDevice {
 
      - returns: The correctly resized font size
      */
-    func fontSizeForDevice(size: CGFloat, q6: CGFloat = 0.94, q5: CGFloat = 0.86, q4: CGFloat = 0.80) -> CGFloat {
+    func fontSizeForDevice(_ size: CGFloat, q6: CGFloat = 0.94, q5: CGFloat = 0.86, q4: CGFloat = 0.80) -> CGFloat {
         if iPhone4() {
             return max(10, size * q4)
         } else if iPhone5() {
@@ -82,12 +82,12 @@ public extension UIDevice {
 
  - returns: The correctly resized constraint value
  */
-public func suggestedVerticalConstraint(value: CGFloat, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.65) -> CGFloat {
-    if UIDevice.currentDevice().iPhone4() {
+public func suggestedVerticalConstraint(_ value: CGFloat, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.65) -> CGFloat {
+    if UIDevice.current.iPhone4() {
         return ceil(value * q4)
-    } else if UIDevice.currentDevice().iPhone5() {
+    } else if UIDevice.current.iPhone5() {
         return ceil(value * q5)
-    } else if UIDevice.currentDevice().iPhone6() {
+    } else if UIDevice.current.iPhone6() {
         return ceil(value * q6)
     } else {
         return value
@@ -104,12 +104,12 @@ public func suggestedVerticalConstraint(value: CGFloat, q6: CGFloat = 0.9, q5: C
 
  - returns: The correctly resized constraint value
  */
-public func suggestedHorizontalConstraint(value: CGFloat, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.77) -> CGFloat {
-    if UIDevice.currentDevice().iPhone4() {
+public func suggestedHorizontalConstraint(_ value: CGFloat, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.77) -> CGFloat {
+    if UIDevice.current.iPhone4() {
         return ceil(value * q4)
-    } else if UIDevice.currentDevice().iPhone5() {
+    } else if UIDevice.current.iPhone5() {
         return ceil(value * q5)
-    } else if UIDevice.currentDevice().iPhone6() {
+    } else if UIDevice.current.iPhone6() {
         return ceil(value * q6)
     } else {
         return value

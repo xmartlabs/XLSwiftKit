@@ -23,7 +23,7 @@ class GCDHelperTests: XCTestCase {
     }
 
     func testDelay() {
-        let before = NSDate()
+        let before = Date()
         GCDHelper.delay(0.5) {
             let delay = before.timeIntervalSinceNow
             XCTAssertEqual(delay, 0.5)
@@ -33,20 +33,20 @@ class GCDHelperTests: XCTestCase {
     func testRunOnMainThread() {
         GCDHelper.runOnBackgroundThread() {
             GCDHelper.runOnMainThread() {
-                XCTAssertTrue(NSThread.isMainThread())
+                XCTAssertTrue(Thread.isMainThread)
             }
         }
     }
 
     func testRunOnBackgroundThread() {
         GCDHelper.runOnBackgroundThread() {
-            XCTAssertFalse(NSThread.isMainThread())
+            XCTAssertFalse(Thread.isMainThread)
         }
     }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

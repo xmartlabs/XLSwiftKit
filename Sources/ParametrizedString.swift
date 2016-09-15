@@ -37,10 +37,10 @@ public protocol ParametrizedString {
 
 extension ParametrizedString where Self: StringProtocol {
 
-    public func parametrize(parameters: CustomStringConvertible...) -> String {
+    public func parametrize(_ parameters: CustomStringConvertible...) -> String {
         return parameters
-            .enumerate()
-            .reduce(self.value) { replaceParameter(from: $0, index: $1.index, with: $1.element) }
+            .enumerated()
+            .reduce(self.value) { replaceParameter(from: $0, index: $1.0, with: $1.1) }
     }
 
     public func parametrize(withDictonary dictonary: [Int: CustomStringConvertible]) -> String {
@@ -48,9 +48,9 @@ extension ParametrizedString where Self: StringProtocol {
             .reduce(self.value) { replaceParameter(from: $0, index: $1.0, with: $1.1) }
     }
 
-    private func replaceParameter(from string: String, index: Int, with stringConvertible: CustomStringConvertible) -> String {
-        let metaParameter = parameterFormat.stringByReplacingOccurrencesOfString("i", withString: "\(index)")
-        return string.stringByReplacingOccurrencesOfString(metaParameter, withString: stringConvertible.description)
+    fileprivate func replaceParameter(from string: String, index: Int, with stringConvertible: CustomStringConvertible) -> String {
+        let metaParameter = parameterFormat.replacingOccurrences(of: "i", with: "\(index)")
+        return string.replacingOccurrences(of: metaParameter, with: stringConvertible.description)
     }
 
 }
@@ -67,7 +67,7 @@ extension String: StringProtocol {
 
 }
 
-extension String: CustomStringConvertible {
+extension String {
 
     public var description: String { return self }
 

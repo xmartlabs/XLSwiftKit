@@ -24,10 +24,10 @@
 
 import Foundation
 
-extension NSData {
+extension Data {
 
     public func toJSON() -> AnyObject? {
-        return try? NSJSONSerialization.JSONObjectWithData(self, options: .AllowFragments)
+        return try! JSONSerialization.jsonObject(with: self, options: .allowFragments) as AnyObject?
     }
 
 }

@@ -30,36 +30,36 @@ public struct Constants {
 
     public struct Formatters {
 
-        static let monthDateFormatter: NSDateFormatter = {
-            let formatter = NSDateFormatter()
+        static let monthDateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
             formatter.dateFormat = "MMMM"
 
             return formatter
         }()
 
-        static let yearDateFormatter: NSDateFormatter = {
-            let formatter = NSDateFormatter()
+        static let yearDateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
             formatter.dateFormat = "yyyy"
 
             return formatter
         }()
 
-        static let dayDateFormatter: NSDateFormatter = {
-            let formatter = NSDateFormatter()
+        static let dayDateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
             formatter.dateFormat = "dd"
 
             return formatter
         }()
 
-        static let currencyFormatter: NSNumberFormatter = {
-            let formatter = NSNumberFormatter()
-            formatter.numberStyle = .CurrencyStyle
+        static let currencyFormatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
             return formatter
         }()
 
-        static let currencyFormatterWithoutComma: NSNumberFormatter = {
-            let formatter = NSNumberFormatter()
-            formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        static let currencyFormatterWithoutComma: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = NumberFormatter.Style.currency
             formatter.maximumFractionDigits = 0
             return formatter
         }()

@@ -28,7 +28,7 @@ import UIKit
 
 public extension UIApplication {
 
-    public class func topViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
+    public class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }
@@ -36,7 +36,7 @@ public extension UIApplication {
         if let tab = base as? UITabBarController {
             let moreNavigationController = tab.moreNavigationController
 
-            if let top = moreNavigationController.topViewController where top.view.window != nil {
+            if let top = moreNavigationController.topViewController, top.view.window != nil {
                 return topViewController(top)
             } else if let selected = tab.selectedViewController {
                 return topViewController(selected)
@@ -50,11 +50,11 @@ public extension UIApplication {
         return base
     }
 
-    static public func changeRootViewController(rootViewController: UIViewController, animated: Bool = true, from: UIViewController? = nil, completion: ((Bool) -> Void)? = nil) {
-        let window = UIApplication.sharedApplication().keyWindow
-        if let window = window where animated {
-            UIView.transitionWithView(window, duration: 0.5, options: .TransitionCrossDissolve, animations: {
-                let oldState: Bool = UIView.areAnimationsEnabled()
+    static public func changeRootViewController(_ rootViewController: UIViewController, animated: Bool = true, from: UIViewController? = nil, completion: ((Bool) -> Void)? = nil) {
+        let window = UIApplication.shared.keyWindow
+        if let window = window, animated {
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                let oldState: Bool = UIView.areAnimationsEnabled
                 UIView.setAnimationsEnabled(false)
                 window.rootViewController = rootViewController
                 window.makeKeyAndVisible()
@@ -72,10 +72,10 @@ public extension UIApplication {
      - parameter to:         UIViewController to be set as new rootViewController
      - parameter completion: Handler to be executed when controller switch finishes
      */
-    static public func changeRootViewControllerAfterDismiss(from: UIViewController? = nil, to: UIViewController, completion: ((Bool) -> Void)? = nil) {
+    static public func changeRootViewControllerAfterDismiss(_ from: UIViewController? = nil, to: UIViewController, completion: ((Bool) -> Void)? = nil) {
         if let presenting = from?.presentingViewController {
             presenting.view.alpha = 0
-            from?.dismissViewControllerAnimated(false, completion: {
+            from?.dismiss(animated: false, completion: {
                 changeRootViewController(to, completion: completion)
             })
         } else {
@@ -83,28 +83,28 @@ public extension UIApplication {
         }
     }
 
-    public static func makePhoneCall(phoneNumber: String) -> Bool {
-        guard let phoneNumberUrl = NSURL(string: phoneNumber) where UIApplication.sharedApplication().canOpenURL(phoneNumberUrl) else {
+    public static func makePhoneCall(_ phoneNumber: String) -> Bool {
+        guard let phoneNumberUrl = URL(string: phoneNumber), UIApplication.shared.canOpenURL(phoneNumberUrl) else {
             return false
         }
-        return UIApplication.sharedApplication().openURL(phoneNumberUrl)
+        return UIApplication.shared.openURL(phoneNumberUrl)
     }
 
     public static var bundleIdentifier: String {
-        return NSBundle.mainBundle().bundleIdentifier!
+        return Bundle.main.bundleIdentifier!
     }
 
     // swiftlint:disable force_cast
     public static var buildVersion: String {
-        return NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String
+        return Bundle.main.infoDictionary!["CFBundleVersion"] as! String
     }
 
     public static var appVersion: String {
-        return NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
 
     public static var bundleName: String {
-        return NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String
+        return Bundle.main.infoDictionary!["CFBundleName"] as! String
     }
     // swiftlint:enable force_cast
 

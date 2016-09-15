@@ -29,7 +29,7 @@ import Foundation
 public extension Double {
 
     public func currencyString() -> String? {
-        return Constants.Formatters.currencyFormatter.stringFromNumber(NSNumber(double: self))
+        return Constants.Formatters.currencyFormatter.string(from: NSNumber(value: self as Double))
     }
 
 }
@@ -37,7 +37,7 @@ public extension Double {
 public extension Int {
 
     public func currencyString() -> String? {
-        return Constants.Formatters.currencyFormatter.stringFromNumber(NSNumber(integer: self))
+        return Constants.Formatters.currencyFormatter.string(from: NSNumber(value: self as Int))
     }
 
 }
