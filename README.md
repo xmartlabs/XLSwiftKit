@@ -3,18 +3,20 @@
 <p align="left">
 <a href="https://travis-ci.org/xmartlabs/XLSwiftKit"><img src="https://travis-ci.org/xmartlabs/XLSwiftKit.svg?branch=master" alt="Build status" /></a>
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift2-compatible-4BC51D.svg?style=flat" alt="Swift 2 compatible" /></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-4BC51D.svg?style=flat" alt="Swift 3 compatible" /></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible" /></a>
-<!--<a href="https://cocoapods.org/pods/XLSwiftKit"><img src="https://img.shields.io/badge/pod-1.0.0-blue.svg" alt="CocoaPods compatible" /></a> -->
+<a href="https://cocoapods.org/pods/XLSwiftKit"><img src="https://img.shields.io/cocoapods/v/XLSwiftKit.svg" alt="CocoaPods compatible" /></a>
 <a href="https://raw.githubusercontent.com/xmartlabs/XLSwiftKit/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
 </p>
 
 By [Xmartlabs SRL](http://xmartlabs.com).
 
-## Inroduction
+## Introduction
 
 XLSwiftKit is a collection of helpers and extensions we use internally. It is a constantly being updated with new snippets. Feel free to use it or to contribute.
 You can see a list of helper functions and extensions [here](#implemented-functions). Please keep that list updated if you add new functions
+
+> XLSwiftKit 2.0 is in Swift 3 syntax. If you are developing in Swift 2 please use version 1.x
 
 ## Usage
 
@@ -26,7 +28,8 @@ import XLSwiftKit
 ## Requirements
 
 * iOS 8.0+
-* Xcode 7.2+
+* Xcode 8.0+
+* Swift 3
 
 ## Getting involved
 
@@ -176,12 +179,12 @@ This is a publis struct with functions inside:
 
 #### GCDHelper
 
-* `static let mainQueue: dispatch_queue_t`: Returns the main queue
-* `static let backgroundQueue: dispatch_queue_t`: Returns a background queue
-* `static func delay(delay: Double, block: () -> ())`: Executes a block after a given delay
-* `static func runOnMainThread(block: () -> ())`: Executes a block on the main thread
-* `static func runOnBackgroundThread(block: () -> ())`: Executes a block on the background queue
-* `static func synced(lock: AnyObject, closure: () -> ())`: Locks an object
+* `static let mainQueue: DispatchQueue`: Returns the main queue
+* `static let backgroundQueue: DispatchQueue`: Returns a background queue
+* `static func delay(_ delay: Double, block: @escaping () -> ())`: Executes a block after a given delay
+* `static func runOnMainThread(_ block: @escaping () -> ())`: Executes a block on the main thread
+* `static func runOnBackgroundThread(_ block: @escaping () -> ())`: Executes a block on the background queue
+* `static func synced(_ lock: AnyObject, closure: () -> ())`: Locks an object
 
 #### Box
 
