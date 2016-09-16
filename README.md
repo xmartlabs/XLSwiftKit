@@ -53,7 +53,7 @@ Follow these 3 steps to run Example project: Clone XLSwiftKit repository, open X
 To install XLSwiftKit, simply add the following line to your Podfile:
 
 ```ruby
-pod 'XLSwiftKit', :git => 'https://github.com/xmartlabs/XLSwiftKit.git'
+pod 'XLSwiftKit', '~> 2.0'
 ```
 
 #### Carthage
@@ -63,7 +63,7 @@ pod 'XLSwiftKit', :git => 'https://github.com/xmartlabs/XLSwiftKit.git'
 To install XLSwiftKit, simply add the following line to your Cartfile:
 
 ```ogdl
-github "xmartlabs/XLSwiftKit" ~> 1.0
+github "xmartlabs/XLSwiftKit" ~> 2.0
 ```
 
 ## Implemented functions
