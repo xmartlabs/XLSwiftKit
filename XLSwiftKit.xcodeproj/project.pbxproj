@@ -15,6 +15,7 @@
 		46BD3DF71D74B8D100D93B2F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BD3DF61D74B8D100D93B2F /* GradientView.swift */; };
 		46BD3DFA1D74BF8200D93B2F /* OwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BD3DF91D74BF8200D93B2F /* OwnerView.swift */; };
 		46BD3DFE1D74CCAF00D93B2F /* ParametrizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BD3DFD1D74CCAF00D93B2F /* ParametrizedString.swift */; };
+		8F52939E1D8C530E00143015 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F52939C1D8C52BD00143015 /* DataTests.swift */; };
 		BF68CCC21C74F2A5006BE94B /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68CCC11C74F2A5006BE94B /* Box.swift */; };
 		BF7E0BDE1C6E53F300D831DD /* Appearances.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E0BC71C6E53F300D831DD /* Appearances.swift */; };
 		BF7E0BDF1C6E53F300D831DD /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E0BC81C6E53F300D831DD /* NSDate.swift */; };
@@ -69,6 +70,7 @@
 		46BD3DF61D74B8D100D93B2F /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		46BD3DF91D74BF8200D93B2F /* OwnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerView.swift; sourceTree = "<group>"; };
 		46BD3DFD1D74CCAF00D93B2F /* ParametrizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParametrizedString.swift; sourceTree = "<group>"; };
+		8F52939C1D8C52BD00143015 /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataTests.swift; path = Tests/DataTests.swift; sourceTree = SOURCE_ROOT; };
 		BF68CCC11C74F2A5006BE94B /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		BF7E0BB91C6E53E400D831DD /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateTests.swift; path = Tests/NSDateTests.swift; sourceTree = SOURCE_ROOT; };
 		BF7E0BBA1C6E53E400D831DD /* NumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberTests.swift; path = Tests/NumberTests.swift; sourceTree = SOURCE_ROOT; };
@@ -159,6 +161,7 @@
 				BF7E0BBE1C6E53E400D831DD /* UIColorTests.swift */,
 				BF7E0BBF1C6E53E400D831DD /* GCDHelperTests.swift */,
 				28F8288E1C494B2C00330CF4 /* Info.plist */,
+				8F52939C1D8C52BD00143015 /* DataTests.swift */,
 			);
 			name = Tests;
 			path = XLSwiftKitTests;
@@ -401,6 +404,7 @@
 				BF7E0BFB1C6E554000D831DD /* NSDateTests.swift in Sources */,
 				BF7E0C011C6E554700D831DD /* GCDHelperTests.swift in Sources */,
 				BF7E0C001C6E554700D831DD /* UIColorTests.swift in Sources */,
+				8F52939E1D8C530E00143015 /* DataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

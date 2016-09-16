@@ -67,7 +67,7 @@ public extension UITableView {
             animations: { [weak self] _ in
                 self?.reloadData()
             },
-            completion: { _ in completion })
+            completion: { _ in completion?() })
     }
 
 }
