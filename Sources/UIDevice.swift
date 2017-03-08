@@ -26,6 +26,9 @@
 
 import Foundation
 
+/**
+ These extensions have the intention to return if the current device has certain size or not.
+ */
 public extension UIDevice {
 
     func maxScreenLength() -> CGFloat {
@@ -41,11 +44,11 @@ public extension UIDevice {
         return maxScreenLength() == 568
     }
 
-    func iPhone6() -> Bool {
+    func iPhone6or7() -> Bool {
         return maxScreenLength() == 667
     }
 
-    func iPhone6Plus() -> Bool {
+    func iPhone6or7Plus() -> Bool {
         return maxScreenLength() == 736
     }
 
@@ -65,7 +68,7 @@ public extension UIDevice {
             return max(10, size * q4)
         } else if iPhone5() {
             return max(10, size * q5)
-        } else if iPhone6() {
+        } else if iPhone6or7() {
             return max(10, size * q6)
         }
         return size
@@ -87,7 +90,7 @@ public func suggestedVerticalConstraint(_ value: CGFloat, q6: CGFloat = 0.9, q5:
         return ceil(value * q4)
     } else if UIDevice.current.iPhone5() {
         return ceil(value * q5)
-    } else if UIDevice.current.iPhone6() {
+    } else if UIDevice.current.iPhone6or7() {
         return ceil(value * q6)
     } else {
         return value
@@ -109,7 +112,7 @@ public func suggestedHorizontalConstraint(_ value: CGFloat, q6: CGFloat = 0.9, q
         return ceil(value * q4)
     } else if UIDevice.current.iPhone5() {
         return ceil(value * q5)
-    } else if UIDevice.current.iPhone6() {
+    } else if UIDevice.current.iPhone6or7() {
         return ceil(value * q6)
     } else {
         return value
