@@ -19,7 +19,7 @@ public enum UIImageContentMode {
 
 public extension UIImage {
 
-    // MARK:  Image from gradient colors
+    // MARK: Image from gradient colors
 
     /**
     Creates a gradient color image.
@@ -66,7 +66,7 @@ public extension UIImage {
         context?.fill(CGRect(origin: CGPoint(x: 0, y: 0), size: size))
         let style = NSMutableParagraphStyle()
         style.alignment = .center
-        let attr = [NSFontAttributeName:font, NSForegroundColorAttributeName:color, NSParagraphStyleAttributeName:style]
+        let attr = [NSFontAttributeName: font, NSForegroundColorAttributeName: color, NSParagraphStyleAttributeName: style]
         let rect = CGRect(x: offset.x, y: offset.y, width: size.width, height: size.height)
         text.draw(in: rect, withAttributes: attr)
         self.init(cgImage:(UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)
@@ -282,7 +282,6 @@ public extension UIImage {
 
         // Set the quality level to use when rescaling
         context!.interpolationQuality = CGInterpolationQuality(rawValue: 3)!
-
 
         //CGContextSetInterpolationQuality(context, CGInterpolationQuality(kCGInterpolationHigh.value))
 

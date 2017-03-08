@@ -59,7 +59,7 @@ public extension UITableView {
         }
     }
 
-    func reloadDataAnimated(_ duration: TimeInterval = 0.4, completion: (() -> ())?) {
+    func reloadDataAnimated(_ duration: TimeInterval = 0.4, completion: (() -> Void)?) {
         UIView.transition(
             with: self,
             duration: duration,

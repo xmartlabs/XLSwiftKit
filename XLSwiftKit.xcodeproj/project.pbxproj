@@ -153,15 +153,15 @@
 		28F8288B1C494B2C00330CF4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8F52939C1D8C52BD00143015 /* DataTests.swift */,
+				BF7E0BBD1C6E53E400D831DD /* DictionaryTests.swift */,
+				BF7E0BBF1C6E53E400D831DD /* GCDHelperTests.swift */,
 				BF7E0BB91C6E53E400D831DD /* NSDateTests.swift */,
 				BF7E0BBA1C6E53E400D831DD /* NumberTests.swift */,
 				BF7E0BBB1C6E53E400D831DD /* StringTests.swift */,
-				BF7E0BBC1C6E53E400D831DD /* UIImageTests.swift */,
-				BF7E0BBD1C6E53E400D831DD /* DictionaryTests.swift */,
 				BF7E0BBE1C6E53E400D831DD /* UIColorTests.swift */,
-				BF7E0BBF1C6E53E400D831DD /* GCDHelperTests.swift */,
+				BF7E0BBC1C6E53E400D831DD /* UIImageTests.swift */,
 				28F8288E1C494B2C00330CF4 /* Info.plist */,
-				8F52939C1D8C52BD00143015 /* DataTests.swift */,
 			);
 			name = Tests;
 			path = XLSwiftKitTests;
@@ -184,9 +184,9 @@
 		46BD3DF31D74B5E700D93B2F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				46BD3DF41D74B61C00D93B2F /* RoundedView.swift */,
 				46BD3DF61D74B8D100D93B2F /* GradientView.swift */,
 				46BD3DF91D74BF8200D93B2F /* OwnerView.swift */,
+				46BD3DF41D74B61C00D93B2F /* RoundedView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -203,22 +203,22 @@
 		BF7E0BF91C6E54A900D831DD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BF7E0BCD1C6E53F300D831DD /* AFImageExtension.swift */,
+				BF7E0BD51C6E53F300D831DD /* Dictionary.swift */,
 				28A6B9C71CB5E28700682BCE /* NSData.swift */,
 				BF7E0BC81C6E53F300D831DD /* NSDate.swift */,
-				BF7E0BC91C6E53F300D831DD /* UIApplication.swift */,
-				BF7E0BCA1C6E53F300D831DD /* UINavigationBar.swift */,
-				BF7E0BCB1C6E53F300D831DD /* UIView.swift */,
-				BF7E0BCC1C6E53F300D831DD /* UIViewController.swift */,
-				BF7E0BCD1C6E53F300D831DD /* AFImageExtension.swift */,
 				BF7E0BCF1C6E53F300D831DD /* Numbers.swift */,
+				46BD3DFD1D74CCAF00D93B2F /* ParametrizedString.swift */,
 				BF7E0BD01C6E53F300D831DD /* String.swift */,
-				BF7E0BD21C6E53F300D831DD /* UIImage.swift */,
-				BF7E0BD31C6E53F300D831DD /* UITable.swift */,
-				BF7E0BD51C6E53F300D831DD /* Dictionary.swift */,
+				BF7E0BC91C6E53F300D831DD /* UIApplication.swift */,
 				BF7E0BD71C6E53F300D831DD /* UIColor.swift */,
 				BF7E0BD81C6E53F300D831DD /* UIDevice.swift */,
 				BF7E0BD91C6E53F300D831DD /* UIFont.swift */,
-				46BD3DFD1D74CCAF00D93B2F /* ParametrizedString.swift */,
+				BF7E0BD21C6E53F300D831DD /* UIImage.swift */,
+				BF7E0BCA1C6E53F300D831DD /* UINavigationBar.swift */,
+				BF7E0BD31C6E53F300D831DD /* UITable.swift */,
+				BF7E0BCB1C6E53F300D831DD /* UIView.swift */,
+				BF7E0BCC1C6E53F300D831DD /* UIViewController.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -227,9 +227,9 @@
 			isa = PBXGroup;
 			children = (
 				BF7E0BC71C6E53F300D831DD /* Appearances.swift */,
+				BF68CCC11C74F2A5006BE94B /* Box.swift */,
 				BF7E0BCE1C6E53F300D831DD /* Constants.swift */,
 				BF7E0BD11C6E53F300D831DD /* GCDHelper.swift */,
-				BF68CCC11C74F2A5006BE94B /* Box.swift */,
 				28A6B9C91CB5E3D300682BCE /* Helpers.swift */,
 			);
 			name = Helpers;
@@ -296,7 +296,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					28F8287C1C494B2C00330CF4 = {
 						CreatedOnToolsVersion = 7.2;
@@ -517,7 +517,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -537,7 +537,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
