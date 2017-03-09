@@ -72,7 +72,7 @@ class UIImageTests: XCTestCase {
         let image = UIImage.imageWithColor(.red)
         image.saveToCameraRoll()
         XCTAssertTrue(true)
-        image.saveToCameraRoll() { _ in }
+        image.saveToCameraRoll { _ in }
         XCTAssertTrue(true)
     }
 

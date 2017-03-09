@@ -26,7 +26,6 @@
 
 import UIKit
 
-
 public extension UIFont {
 
     public func heightForString(_ string: NSString, width: CGFloat) -> CGFloat {

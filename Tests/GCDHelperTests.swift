@@ -31,15 +31,15 @@ class GCDHelperTests: XCTestCase {
     }
 
     func testRunOnMainThread() {
-        GCDHelper.runOnBackgroundThread() {
-            GCDHelper.runOnMainThread() {
+        GCDHelper.runOnBackgroundThread {
+            GCDHelper.runOnMainThread {
                 XCTAssertTrue(Thread.isMainThread)
             }
         }
     }
 
     func testRunOnBackgroundThread() {
-        GCDHelper.runOnBackgroundThread() {
+        GCDHelper.runOnBackgroundThread {
             XCTAssertFalse(Thread.isMainThread)
         }
     }

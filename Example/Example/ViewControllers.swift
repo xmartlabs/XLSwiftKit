@@ -43,7 +43,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         dismiss(animated: true) {
-            image?.saveToCameraRoll() { [weak self] succeded in
+            image?.saveToCameraRoll { [weak self] succeded in
                 let alert: UIAlertController
                 if succeded {
                     alert = UIAlertController(title: "Image saved to camera roll", message: "", preferredStyle: .alert)

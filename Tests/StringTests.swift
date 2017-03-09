@@ -21,7 +21,7 @@ class StringTests: XCTestCase {
         super.tearDown()
     }
 
-    //MARK: isValidAsEmail tests
+    // MARK: isValidAsEmail tests
     func testIsValidAsEmail() {
         let email = "ab@a.com"
         XCTAssert(email.isValidAsEmail())
@@ -37,7 +37,7 @@ class StringTests: XCTestCase {
         XCTAssertFalse(email.isValidAsEmail())
     }
 
-    //MARK: isValidAsPhone tests
+    // MARK: isValidAsPhone tests
     func testIsValidAsPhone() {
         let phone = "999999999"
         XCTAssert(phone.isValidAsPhone())
@@ -68,7 +68,7 @@ class StringTests: XCTestCase {
         XCTAssertFalse(phone.isValidAsPhone())
     }
 
-    //MARK: isNumberString tests
+    // MARK: isNumberString tests
     func testValidNumberString() {
         let number = "999999"
         XCTAssert(number.isNumberString())
@@ -84,7 +84,7 @@ class StringTests: XCTestCase {
         XCTAssert(number.isNumberString())
     }
 
-    //MARK: findFirstNumberInString tests
+    // MARK: findFirstNumberInString tests
     func testFirstNumberFromString() {
         let string = "99999--absdas...--a-dakdsa99123"
         XCTAssertEqual(string.findFirstNumberInString(), "99999")
@@ -120,7 +120,7 @@ class StringTests: XCTestCase {
         return { (round($0 * factor) / factor) }
     }
 
-    //MARK: Test first last name
+    // MARK: Test first last name
     func testFirstLastName() {
         let string = "Sir Alex Ferguson"
         let name = string.getFirstAndLastName()
@@ -135,7 +135,7 @@ class StringTests: XCTestCase {
         XCTAssertNil(name)
     }
 
-    //MARK: Test Parametrized String
+    // MARK: Test Parametrized String
     func testStringParameters() {
         let string = "Hey {0}, do you want to {1}?"
         let expected = "Hey dude, do you want to play tennis?"
