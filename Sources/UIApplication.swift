@@ -51,7 +51,7 @@ public extension UIApplication {
     }
 
     static public func changeRootViewController(_ rootViewController: UIViewController, animated: Bool = true, from: UIViewController? = nil, completion: ((Bool) -> Void)? = nil) {
-        let window = UIApplication.shared.keyWindow
+        let window = UIApplication.shared.keyWindow ?? UIApplication.shared.delegate?.window ?? nil
         if let window = window, animated {
             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 let oldState: Bool = UIView.areAnimationsEnabled
