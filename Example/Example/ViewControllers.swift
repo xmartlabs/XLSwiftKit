@@ -24,7 +24,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         showImagePicker(.savedPhotosAlbum)
     }
 
-    var overlayView: UIView? = nil
+    var overlayView: UIView?
 
     func showImagePicker(_ sourceType: UIImagePickerControllerSourceType) {
         let imagePickerController = UIImagePickerController()
@@ -93,11 +93,11 @@ class TransparentNavigationBarViewController: UIViewController {
 
 class AnimationsViewController: UIViewController {
 
-    @IBAction func shakeButtonDidTouch(_ sender: AnyObject) {
+    @IBAction func shakeButtonDidTouch(_ sender: UIButton) {
         sender.shake(0.3)
     }
 
-    @IBAction func spinButtonDidTouch(_ sender: AnyObject) {
+    @IBAction func spinButtonDidTouch(_ sender: UIButton) {
         sender.spin(0.5, rotations: 2.0, repeatCount: 2.0)
     }
 

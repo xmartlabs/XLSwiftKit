@@ -66,7 +66,7 @@ public extension UIImage {
         context?.fill(CGRect(origin: CGPoint(x: 0, y: 0), size: size))
         let style = NSMutableParagraphStyle()
         style.alignment = .center
-        let attr = [NSFontAttributeName: font, NSForegroundColorAttributeName: color, NSParagraphStyleAttributeName: style]
+        let attr = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: color, NSAttributedStringKey.paragraphStyle: style]
         let rect = CGRect(x: offset.x, y: offset.y, width: size.width, height: size.height)
         text.draw(in: rect, withAttributes: attr)
         self.init(cgImage:(UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)

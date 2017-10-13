@@ -27,9 +27,9 @@ import XLSwiftKit
 
 ## Requirements
 
-* iOS 8.0+
-* Xcode 8.0+
-* Swift 3
+* iOS 9.2+
+* Xcode 9.0+
+* Swift 4
 
 ## Getting involved
 
@@ -53,7 +53,7 @@ Follow these 3 steps to run Example project: Clone XLSwiftKit repository, open X
 To install XLSwiftKit, simply add the following line to your Podfile:
 
 ```ruby
-pod 'XLSwiftKit', '~> 2.0'
+pod 'XLSwiftKit', '~> 3.0'
 ```
 
 #### Carthage
@@ -63,7 +63,7 @@ pod 'XLSwiftKit', '~> 2.0'
 To install XLSwiftKit, simply add the following line to your Cartfile:
 
 ```ogdl
-github "xmartlabs/XLSwiftKit" ~> 2.0
+github "xmartlabs/XLSwiftKit" ~> 3.0
 ```
 
 ## Implemented functions
