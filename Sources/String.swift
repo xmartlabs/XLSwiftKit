@@ -53,7 +53,7 @@ public extension String {
     func findFirstNumberInString() -> String? {
         if let range = rangeOfCharacter(from: CharacterSet.decimalDigits), let numRange = rangeOfCharacter(from: CharacterSet.decimalDigits.inverted, options: .literal,
                 range: range.lowerBound..<self.endIndex) {
-                return substring(with: range.lowerBound..<numRange.lowerBound)
+            return String(self[range.lowerBound..<numRange.lowerBound])
         }
         return nil
     }
@@ -61,7 +61,7 @@ public extension String {
     /// Return the height necessary for a text given a width and font size. Same as `heightForString` extension on UIFont
     func renderedHeightWithFont(_ font: UIFont, width: CGFloat) -> CGFloat {
         let size = CGSize(width: width, height: 5000)
-        let attributes = [NSFontAttributeName: font]
+        let attributes = [NSAttributedStringKey.font: font]
         let objcStr = NSString(string: self)
         let boundingRect = objcStr.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         return boundingRect.height
@@ -73,8 +73,8 @@ public extension String {
             range: nil, locale: nil) else {
             return nil
         }
-        let first = substring(to: range.lowerBound)
-        let last = substring(from: range.upperBound)
+        let first = String(self[..<range.lowerBound])
+        let last = String(self[range.upperBound...])
         return (first, last)
     }
 

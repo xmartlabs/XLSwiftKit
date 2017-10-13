@@ -64,7 +64,7 @@ public extension UITableView {
             with: self,
             duration: duration,
             options: .transitionCrossDissolve,
-            animations: { [weak self] _ in
+            animations: { [weak self] in
                 self?.reloadData()
             },
             completion: { _ in completion?() })
