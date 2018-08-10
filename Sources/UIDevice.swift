@@ -52,6 +52,10 @@ public extension UIDevice {
         return maxScreenLength() == 736
     }
 
+    func iPhoneX() -> Bool {
+        return maxScreenLength() == 812
+    }
+
     /**
      Resize a font according to current device. Works for iPhone apps only. The desired font size will be multiplied by the coefficient for the corresponding current device.
      All coefficients have reasonable default values.
