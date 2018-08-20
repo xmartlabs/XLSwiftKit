@@ -28,14 +28,14 @@ import Foundation
 public enum GradientViewDirection {
 
     case horizontal
-    case vertcial
+    case vertical
     case custom(start: CGPoint, end: CGPoint)
 
     var directionPoints: (start: CGPoint, end: CGPoint) {
         switch self {
         case .horizontal:
             return (start: CGPoint(x: 0, y: 0.5), end: CGPoint(x: 1, y: 0.5))
-        case .vertcial:
+        case .vertical:
             return (start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1))
         case let .custom(start, end):
             return (start: start, end: end)
@@ -52,7 +52,7 @@ open class GradientView: UIView {
         }
     }
 
-    open var direction = GradientViewDirection.vertcial {
+    open var direction = GradientViewDirection.vertical {
         didSet {
             updateDirection()
         }
@@ -90,10 +90,5 @@ open class GradientView: UIView {
         gradientLayer.startPoint = startPoint
         gradientLayer.endPoint = endPoint
     }
-
-//    override open func layoutSublayersOfLayer(_ layer: CALayer) {
-//        super.layoutSublayersOfLayer(layer)
-//        gradientLayer.frame = layer.frame
-//    }
 
 }
