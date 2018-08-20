@@ -69,7 +69,7 @@ public extension UIImage {
         let attr = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: color, NSAttributedStringKey.paragraphStyle: style]
         let rect = CGRect(x: offset.x, y: offset.y, width: size.width, height: size.height)
         text.draw(in: rect, withAttributes: attr)
-        self.init(cgImage:(UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)
+        self.init(cgImage: (UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)
         UIGraphicsEndImageContext()
     }
 
@@ -96,7 +96,7 @@ public extension UIImage {
         // Init
         UIGraphicsBeginImageContextWithOptions(size, true, 0)
 
-        let num_locations: Int = 2
+        let num_locations: Int = 2 // swiftlint:disable:this identifier_name
         let locations: [CGFloat] = [0.0, 1.0] as [CGFloat]
 
         let startComponents = startColor.cgColor.components!
