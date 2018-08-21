@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to XLSwiftKit will be documented in this file.
 
+### [3.0.1](https://github.com/xmartlabs/XLSwiftKit/releases/tag/3.0.1))
+<!-- Released on 2018-8-21. -->
+
+* Add iPhone X helper.
+* Fix small type in GradientView.
+* Increase deployment target to 9.2.
+
 ### [3.0.0](https://github.com/xmartlabs/XLSwiftKit/releases/tag/3.0.0))
 <!-- Released on 2017-10-13. -->
 
