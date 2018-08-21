@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'XLSwiftKit'
-  s.version = '3.0.0'
+  s.version = '3.0.1'
   s.license = 'MIT'
   s.summary = 'Helpers and Extensions for Swift'
   s.homepage = 'https://github.com/xmartlabs/XLSwiftKit'
