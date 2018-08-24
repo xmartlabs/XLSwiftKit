@@ -73,6 +73,7 @@ open class GradientView: UIView {
     fileprivate func setup() {
         backgroundColor = .clear
         layer.addSublayer(gradientLayer)
+        gradientLayer.frame = self.frame
         updateColors()
         updateDirection()
     }
