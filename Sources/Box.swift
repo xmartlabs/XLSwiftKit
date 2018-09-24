@@ -30,7 +30,7 @@ import Foundation
 */
 open class Box<T> {
 
-    open let value: T?
+    public let value: T?
 
     public init(_ value: T) {
         self.value = value

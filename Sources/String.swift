@@ -61,7 +61,7 @@ public extension String {
     /// Return the height necessary for a text given a width and font size. Same as `heightForString` extension on UIFont
     func renderedHeightWithFont(_ font: UIFont, width: CGFloat) -> CGFloat {
         let size = CGSize(width: width, height: 5000)
-        let attributes = [NSAttributedStringKey.font: font]
+        let attributes = [NSAttributedString.Key.font: font]
         let objcStr = NSString(string: self)
         let boundingRect = objcStr.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         return boundingRect.height

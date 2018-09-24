@@ -26,7 +26,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     var overlayView: UIView?
 
-    func showImagePicker(_ sourceType: UIImagePickerControllerSourceType) {
+    func showImagePicker(_ sourceType: UIImagePickerController.SourceType) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.modalPresentationStyle = .currentContext
         imagePickerController.sourceType = sourceType
@@ -40,8 +40,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
         present(imagePickerController, animated: true, completion: nil)
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         dismiss(animated: true) {
             image?.saveToCameraRoll { [weak self] succeded in
                 let alert: UIAlertController
