@@ -25,12 +25,11 @@
 
 import Foundation
 
-// swiftlint:disable identifier_name
 public enum GradientViewDirection {
 
     case horizontal
     case vertical
-    case custom(start: CGPoint, end: CGPoint)
+    case custom(start: CGPoint, end: CGPoint) // swiftlint:disable:this identifier_name
 
     var directionPoints: (start: CGPoint, end: CGPoint) {
         switch self {
