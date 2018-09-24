@@ -36,7 +36,7 @@ public extension UIColor {
     }
 
     convenience init(netHex: Int) {
-        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+        self.init(red: (netHex >> 16) & 0xff, green: (netHex >> 8) & 0xff, blue: netHex & 0xff)
     }
 
 }

@@ -36,7 +36,7 @@ public extension UIImage {
         let colors = gradientColors.map {(color: UIColor) -> AnyObject! in return color.cgColor as AnyObject! } as NSArray
         let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: nil)
         context?.drawLinearGradient(gradient!, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: size.height), options: CGGradientDrawingOptions(rawValue: 0))
-        self.init(cgImage:(UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)
+        self.init(cgImage: (UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)
         UIGraphicsEndImageContext()
     }
 
@@ -66,7 +66,7 @@ public extension UIImage {
         context?.fill(CGRect(origin: CGPoint(x: 0, y: 0), size: size))
         let style = NSMutableParagraphStyle()
         style.alignment = .center
-        let attr = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: color, NSAttributedStringKey.paragraphStyle: style]
+        let attr = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.paragraphStyle: style]
         let rect = CGRect(x: offset.x, y: offset.y, width: size.width, height: size.height)
         text.draw(in: rect, withAttributes: attr)
         self.init(cgImage: (UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)
@@ -120,7 +120,7 @@ public extension UIImage {
 
         // Draw it
         UIGraphicsGetCurrentContext()?.drawRadialGradient(gradient!, startCenter: aCenter, startRadius: 0, endCenter: aCenter, endRadius: aRadius, options: CGGradientDrawingOptions.drawsAfterEndLocation)
-        self.init(cgImage:(UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)
+        self.init(cgImage: (UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)
         // Clean up
         UIGraphicsEndImageContext()
     }
@@ -338,7 +338,7 @@ public extension UIImage {
         context?.clip()
 
         context?.draw((imageWithAlpha?.cgImage)!, in: rect)
-        let image = UIImage(cgImage: (context?.makeImage()!)!, scale:scale, orientation: .up)
+        let image = UIImage(cgImage: (context?.makeImage()!)!, scale: scale, orientation: .up)
         UIGraphicsEndImageContext()
         return image
     }

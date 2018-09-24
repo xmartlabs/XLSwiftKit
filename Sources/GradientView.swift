@@ -25,6 +25,7 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
 public enum GradientViewDirection {
 
     case horizontal

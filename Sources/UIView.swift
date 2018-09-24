@@ -43,7 +43,7 @@ extension UIView: CustomViewAnimations {
         animation.duration = duration
         animation.isAdditive = true
 
-        layer.add(animation, forKey:"shake")
+        layer.add(animation, forKey: "shake")
     }
 
     public func spin(_ duration: CFTimeInterval, rotations: CGFloat, repeatCount: Float) {
@@ -53,7 +53,7 @@ extension UIView: CustomViewAnimations {
         animation.isCumulative = true
         animation.repeatCount = repeatCount
 
-        layer.add(animation, forKey:"rotationAnimation")
+        layer.add(animation, forKey: "rotationAnimation")
     }
 
 }
@@ -80,12 +80,12 @@ public extension UIView {
         _ = views.map { view.addSubview($0); $0.translatesAutoresizingMaskIntoConstraints = false }
 
         // define options
-        var options = NSLayoutFormatOptions()
+        var options = NSLayoutConstraint.FormatOptions()
         if alignLeading {
-            options = options.union(NSLayoutFormatOptions.alignAllLeading)
+            options = options.union(NSLayoutConstraint.FormatOptions.alignAllLeading)
         }
         if alignTrailing {
-            options = options.union(NSLayoutFormatOptions.alignAllTrailing)
+            options = options.union(NSLayoutConstraint.FormatOptions.alignAllTrailing)
         }
 
         // create constraints
