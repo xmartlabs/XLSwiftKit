@@ -56,6 +56,10 @@ public extension UIDevice {
         return maxScreenLength() == 812
     }
 
+    func iPhoneXRorXSMax() -> Bool {
+        return maxScreenLength() == 896
+    }
+
     /**
      Resize a font according to current device. Works for iPhone apps only. The desired font size will be multiplied by the coefficient for the corresponding current device.
      All coefficients have reasonable default values.
@@ -82,20 +86,26 @@ public extension UIDevice {
 /**
  Scale a value for a vertical constraint constant depending on the current device. Works for iPhone apps only. All coefficients have reasonable default values for vertical constraints
 
- - parameter value: Desired value for iPhone6 Plus device type (or any other with the same size)
- - parameter q6:   iPhone6 coefficient
+ - parameter value: Desired value for iPhone XS Max and XR device type (or any other with the same size)
+ - parameter qx:   iPhone X coefficient
+ - parameter qPlus:   iPhone6 Plus and iPhone7 Plus coefficient
+ - parameter q6:   iPhone6 and iPhone7 coefficient
  - parameter q5:   iPhone5 coefficient
  - parameter q4:   iPhone4 coefficient
-
+ 
  - returns: The correctly resized constraint value
  */
-public func suggestedVerticalConstraint(_ value: CGFloat, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.65) -> CGFloat {
+public func suggestedVerticalConstraint(_ value: CGFloat, qx: CGFloat = 0.906, qPlus: CGFloat = 0.83, q6: CGFloat = 0.75, q5: CGFloat = 0.64, q4: CGFloat = 0.54) -> CGFloat {
     if UIDevice.current.iPhone4() {
         return ceil(value * q4)
     } else if UIDevice.current.iPhone5() {
         return ceil(value * q5)
     } else if UIDevice.current.iPhone6or7() {
         return ceil(value * q6)
+    } else if UIDevice.current.iPhone6or7Plus() {
+        return value * qPlus
+    } else if UIDevice.current.iPhoneX() {
+        return value * qx
     } else {
         return value
     }
@@ -104,20 +114,26 @@ public func suggestedVerticalConstraint(_ value: CGFloat, q6: CGFloat = 0.9, q5:
 /**
  Scale a value for a horizontal constraint constant depending on the current device. Works for iPhone apps only. All coefficients have reasonable default values for horizontal constraints
 
- - parameter value: Desired value for iPhone6 Plus device type (or any other with the same size)
- - parameter q6:   iPhone6 coefficient
+ - parameter value: Desired value for iPhone XS Max and XR device type (or any other with the same size)
+ - parameter qx:   iPhone X coefficient
+ - parameter qPlus:   iPhone6 Plus and iPhone7 Plus coefficient
+ - parameter q6:   iPhone6 and iPhone7 coefficient
  - parameter q5:   iPhone5 coefficient
  - parameter q4:   iPhone4 coefficient
 
  - returns: The correctly resized constraint value
  */
-public func suggestedHorizontalConstraint(_ value: CGFloat, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.77) -> CGFloat {
+public func suggestedHorizontalConstraint(_ value: CGFloat, qx: CGFloat = 0.9, qPlus: CGFloat = 1, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.77) -> CGFloat {
     if UIDevice.current.iPhone4() {
         return ceil(value * q4)
     } else if UIDevice.current.iPhone5() {
         return ceil(value * q5)
     } else if UIDevice.current.iPhone6or7() {
         return ceil(value * q6)
+    } else if UIDevice.current.iPhone6or7Plus() {
+        return value * qPlus
+    } else if UIDevice.current.iPhoneX() {
+        return value * qx
     } else {
         return value
     }
