@@ -3,7 +3,6 @@
 <p align="left">
 <a href="https://travis-ci.org/xmartlabs/XLSwiftKit"><img src="https://travis-ci.org/xmartlabs/XLSwiftKit.svg?branch=master" alt="Build status" /></a>
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-4BC51D.svg?style=flat" alt="Swift 3 compatible" /></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible" /></a>
 <a href="https://cocoapods.org/pods/XLSwiftKit"><img src="https://img.shields.io/cocoapods/v/XLSwiftKit.svg" alt="CocoaPods compatible" /></a>
 <a href="https://raw.githubusercontent.com/xmartlabs/XLSwiftKit/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
@@ -15,8 +14,6 @@ By [Xmartlabs SRL](http://xmartlabs.com).
 
 XLSwiftKit is a collection of helpers and extensions we use internally. It is a constantly being updated with new snippets. Feel free to use it or to contribute.
 You can see a list of helper functions and extensions [here](#implemented-functions). Please keep that list updated if you add new functions
-
-> XLSwiftKit 2.0 is in Swift 3 syntax. If you are developing in Swift 2 please use version 1.x
 
 ## Usage
 

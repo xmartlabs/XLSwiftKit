@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to XLSwiftKit will be documented in this file.
 
+### [3.1.0](https://github.com/xmartlabs/XLSwiftKit/releases/tag/3.1.0))
+<!-- Released on 2019-2-14. -->
+
+* Set GradientView frame correctly (#17)
+* Updates for Swift 4.2 and Xcode 10 (#18)
+* Update device constraint helpers (#19)
+
 ### [3.0.1](https://github.com/xmartlabs/XLSwiftKit/releases/tag/3.0.1))
 <!-- Released on 2018-8-21. -->
 
