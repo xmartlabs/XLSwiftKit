@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'XLSwiftKit'
-  s.version = '3.0.1'
+  s.version = '3.0.2'
   s.license = 'MIT'
   s.summary = 'Helpers and Extensions for Swift'
   s.homepage = 'https://github.com/xmartlabs/XLSwiftKit'
@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'UIKit', 'Foundation'
   s.source_files = 'Sources/**/*.{h,m,swift}'
   s.requires_arc = true
+  s.swift_version = '4.2'
 end
