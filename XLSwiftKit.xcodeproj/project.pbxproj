@@ -45,6 +45,13 @@
 		BF7E0BFF1C6E554700D831DD /* DictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E0BBD1C6E53E400D831DD /* DictionaryTests.swift */; };
 		BF7E0C001C6E554700D831DD /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E0BBE1C6E53E400D831DD /* UIColorTests.swift */; };
 		BF7E0C011C6E554700D831DD /* GCDHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E0BBF1C6E53E400D831DD /* GCDHelperTests.swift */; };
+		D489677C22495BCD000F5D15 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489677B22495BCD000F5D15 /* Overload2D.swift */; };
+		D489678422495C38000F5D15 /* TestByReference_OpTuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489677E22495C38000F5D15 /* TestByReference_OpTuple.swift */; };
+		D489678522495C38000F5D15 /* TestByValue_OpTuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489677F22495C38000F5D15 /* TestByValue_OpTuple.swift */; };
+		D489678622495C38000F5D15 /* TestMiscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489678022495C38000F5D15 /* TestMiscellaneous.swift */; };
+		D489678722495C38000F5D15 /* TestByValue_OpScalar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489678122495C38000F5D15 /* TestByValue_OpScalar.swift */; };
+		D489678922495C38000F5D15 /* TestByReference_OpScalar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489678322495C38000F5D15 /* TestByReference_OpScalar.swift */; };
+		D489678A22495C59000F5D15 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489677B22495BCD000F5D15 /* Overload2D.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +106,12 @@
 		BF7E0BDA1C6E53F300D831DD /* UINavigationBar+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Swift.h"; sourceTree = "<group>"; };
 		BF7E0BDC1C6E53F300D831DD /* XLFoundationSwiftKit-Bridgin-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XLFoundationSwiftKit-Bridgin-Header.h"; sourceTree = "<group>"; };
 		BF7E0BDD1C6E53F300D831DD /* XLFoundationSwiftKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFoundationSwiftKit.h; sourceTree = "<group>"; };
+		D489677B22495BCD000F5D15 /* Overload2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overload2D.swift; sourceTree = "<group>"; };
+		D489677E22495C38000F5D15 /* TestByReference_OpTuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestByReference_OpTuple.swift; sourceTree = "<group>"; };
+		D489677F22495C38000F5D15 /* TestByValue_OpTuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestByValue_OpTuple.swift; sourceTree = "<group>"; };
+		D489678022495C38000F5D15 /* TestMiscellaneous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMiscellaneous.swift; sourceTree = "<group>"; };
+		D489678122495C38000F5D15 /* TestByValue_OpScalar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestByValue_OpScalar.swift; sourceTree = "<group>"; };
+		D489678322495C38000F5D15 /* TestByReference_OpScalar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestByReference_OpScalar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +164,7 @@
 		28F8288B1C494B2C00330CF4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D489677D22495C38000F5D15 /* TestOverload2D */,
 				8F52939C1D8C52BD00143015 /* DataTests.swift */,
 				BF7E0BBD1C6E53E400D831DD /* DictionaryTests.swift */,
 				BF7E0BBF1C6E53E400D831DD /* GCDHelperTests.swift */,
@@ -205,6 +219,7 @@
 				28A6B9C71CB5E28700682BCE /* NSData.swift */,
 				BF7E0BC81C6E53F300D831DD /* NSDate.swift */,
 				BF7E0BCF1C6E53F300D831DD /* Numbers.swift */,
+				D489677B22495BCD000F5D15 /* Overload2D.swift */,
 				46BD3DFD1D74CCAF00D93B2F /* ParametrizedString.swift */,
 				BF7E0BD01C6E53F300D831DD /* String.swift */,
 				BF7E0BC91C6E53F300D831DD /* UIApplication.swift */,
@@ -231,6 +246,19 @@
 			);
 			name = Helpers;
 			sourceTree = "<group>";
+		};
+		D489677D22495C38000F5D15 /* TestOverload2D */ = {
+			isa = PBXGroup;
+			children = (
+				D489677E22495C38000F5D15 /* TestByReference_OpTuple.swift */,
+				D489677F22495C38000F5D15 /* TestByValue_OpTuple.swift */,
+				D489678322495C38000F5D15 /* TestByReference_OpScalar.swift */,
+				D489678122495C38000F5D15 /* TestByValue_OpScalar.swift */,
+				D489678022495C38000F5D15 /* TestMiscellaneous.swift */,
+			);
+			name = TestOverload2D;
+			path = Tests/TestOverload2D;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -373,6 +401,7 @@
 				46BD3DFA1D74BF8200D93B2F /* OwnerView.swift in Sources */,
 				BF7E0BEE1C6E53F300D831DD /* UIColor.swift in Sources */,
 				BF7E0BE31C6E53F300D831DD /* UIViewController.swift in Sources */,
+				D489677C22495BCD000F5D15 /* Overload2D.swift in Sources */,
 				BF68CCC21C74F2A5006BE94B /* Box.swift in Sources */,
 				BF7E0BE41C6E53F300D831DD /* AFImageExtension.swift in Sources */,
 				BF7E0BEC1C6E53F300D831DD /* Dictionary.swift in Sources */,
@@ -394,14 +423,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D489678422495C38000F5D15 /* TestByReference_OpTuple.swift in Sources */,
 				BF7E0BFF1C6E554700D831DD /* DictionaryTests.swift in Sources */,
 				BF7E0BFC1C6E554700D831DD /* NumberTests.swift in Sources */,
 				BF7E0BFE1C6E554700D831DD /* UIImageTests.swift in Sources */,
 				BF7E0BFD1C6E554700D831DD /* StringTests.swift in Sources */,
+				D489678722495C38000F5D15 /* TestByValue_OpScalar.swift in Sources */,
 				BF7E0BFB1C6E554000D831DD /* NSDateTests.swift in Sources */,
 				BF7E0C011C6E554700D831DD /* GCDHelperTests.swift in Sources */,
+				D489678622495C38000F5D15 /* TestMiscellaneous.swift in Sources */,
 				BF7E0C001C6E554700D831DD /* UIColorTests.swift in Sources */,
+				D489678522495C38000F5D15 /* TestByValue_OpTuple.swift in Sources */,
+				D489678A22495C59000F5D15 /* Overload2D.swift in Sources */,
 				8F52939E1D8C530E00143015 /* DataTests.swift in Sources */,
+				D489678922495C38000F5D15 /* TestByReference_OpScalar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
