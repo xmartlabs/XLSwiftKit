@@ -60,6 +60,14 @@ public extension UIDevice {
         return maxScreenLength() == 896
     }
 
+    func iPhone12or12Pro() -> Bool {
+        return maxScreenLength() == 844
+    }
+
+    func iPhone12ProMax() -> Bool {
+        return maxScreenLength() == 926
+    }
+
     /**
      Resize a font according to current device. Works for iPhone apps only. The desired font size will be multiplied by the coefficient for the corresponding current device.
      All coefficients have reasonable default values.
@@ -86,8 +94,10 @@ public extension UIDevice {
 /**
  Scale a value for a vertical constraint constant depending on the current device. Works for iPhone apps only. All coefficients have reasonable default values for vertical constraints
 
- - parameter value: Desired value for iPhone XS Max and XR device type (or any other with the same size)
- - parameter qx:   iPhone X coefficient
+ - parameter value: Desired value for iPhone XS Max, iPhone XR, iPhone 11, iPhone 11 Pro Max device type (or any other with the same size)
+ - parameter q12Plus:   iPhone 12 Pro Max coefficient
+ - parameter q12:   iPhone 12  and iPhone 12  Pro coefficient
+ - parameter qx:   iPhone X, iPhone Xs, iPhone 11 Pro and iPhone 12 Mini coefficient
  - parameter qPlus:   iPhone6 Plus and iPhone7 Plus coefficient
  - parameter q6:   iPhone6 and iPhone7 coefficient
  - parameter q5:   iPhone5 coefficient
@@ -95,7 +105,7 @@ public extension UIDevice {
  
  - returns: The correctly resized constraint value
  */
-public func suggestedVerticalConstraint(_ value: CGFloat, qx: CGFloat = 0.906, qPlus: CGFloat = 0.83, q6: CGFloat = 0.75, q5: CGFloat = 0.64, q4: CGFloat = 0.54) -> CGFloat {
+public func suggestedVerticalConstraint(_ value: CGFloat, q12ProMax: CGFloat = 1.033, q12: CGFloat = 0.94, qx: CGFloat = 0.906, qPlus: CGFloat = 0.83, q6: CGFloat = 0.75, q5: CGFloat = 0.64, q4: CGFloat = 0.54) -> CGFloat {
     if UIDevice.current.iPhone4() {
         return ceil(value * q4)
     } else if UIDevice.current.iPhone5() {
@@ -106,6 +116,10 @@ public func suggestedVerticalConstraint(_ value: CGFloat, qx: CGFloat = 0.906, q
         return value * qPlus
     } else if UIDevice.current.iPhoneX() {
         return value * qx
+    } else if UIDevice.current.iPhone12or12Pro() {
+        return value * q12
+    } else if UIDevice.current.iPhone12ProMax() {
+        return value * q12ProMax
     } else {
         return value
     }
@@ -114,8 +128,10 @@ public func suggestedVerticalConstraint(_ value: CGFloat, qx: CGFloat = 0.906, q
 /**
  Scale a value for a horizontal constraint constant depending on the current device. Works for iPhone apps only. All coefficients have reasonable default values for horizontal constraints
 
- - parameter value: Desired value for iPhone XS Max and XR device type (or any other with the same size)
- - parameter qx:   iPhone X coefficient
+ - parameter value: Desired value for iPhone XS Max, iPhone XR, iPhone 11, iPhone 11 Pro Max device type (or any other with the same size)
+ - parameter q12Plus:   iPhone 12 Pro Max coefficient
+ - parameter q12:   iPhone 12  and iPhone 12  Pro coefficient
+ - parameter qx:   iPhone X, iPhone Xs, iPhone 11 Pro and iPhone 12 Mini coefficient
  - parameter qPlus:   iPhone6 Plus and iPhone7 Plus coefficient
  - parameter q6:   iPhone6 and iPhone7 coefficient
  - parameter q5:   iPhone5 coefficient
@@ -123,7 +139,7 @@ public func suggestedVerticalConstraint(_ value: CGFloat, qx: CGFloat = 0.906, q
 
  - returns: The correctly resized constraint value
  */
-public func suggestedHorizontalConstraint(_ value: CGFloat, qx: CGFloat = 0.9, qPlus: CGFloat = 1, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.77) -> CGFloat {
+public func suggestedHorizontalConstraint(_ value: CGFloat, q12ProMax: CGFloat = 1.034, q12: CGFloat = 0.94, qx: CGFloat = 0.9, qPlus: CGFloat = 1, q6: CGFloat = 0.9, q5: CGFloat = 0.77, q4: CGFloat = 0.77) -> CGFloat {
     if UIDevice.current.iPhone4() {
         return ceil(value * q4)
     } else if UIDevice.current.iPhone5() {
@@ -134,6 +150,10 @@ public func suggestedHorizontalConstraint(_ value: CGFloat, qx: CGFloat = 0.9, q
         return value * qPlus
     } else if UIDevice.current.iPhoneX() {
         return value * qx
+    } else if UIDevice.current.iPhone12or12Pro() {
+        return value * q12
+    } else if UIDevice.current.iPhone12ProMax() {
+        return value * q12ProMax
     } else {
         return value
     }
