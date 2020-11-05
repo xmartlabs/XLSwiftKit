@@ -29,7 +29,7 @@ import Foundation
 public extension UIViewController {
 
     /// shows an UIAlertController alert with error title and message
-    public func showError(_ title: String, message: String? = nil) {
+    func showError(_ title: String, message: String? = nil) {
         if !Thread.current.isMainThread {
             DispatchQueue.main.async { [weak self] in
                 self?.showError(title, message: message)

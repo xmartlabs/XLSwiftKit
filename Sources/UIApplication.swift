@@ -28,7 +28,7 @@ import UIKit
 
 public extension UIApplication {
 
-    public class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }
@@ -50,7 +50,7 @@ public extension UIApplication {
         return base
     }
 
-    static public func changeRootViewController(_ rootViewController: UIViewController, animated: Bool = true, from: UIViewController? = nil, completion: ((Bool) -> Void)? = nil) {
+    static func changeRootViewController(_ rootViewController: UIViewController, animated: Bool = true, from: UIViewController? = nil, completion: ((Bool) -> Void)? = nil) {
         let window = UIApplication.shared.keyWindow ?? UIApplication.shared.delegate?.window ?? nil
         if let window = window, animated {
             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
@@ -72,7 +72,7 @@ public extension UIApplication {
      - parameter to:         UIViewController to be set as new rootViewController
      - parameter completion: Handler to be executed when controller switch finishes
      */
-    static public func changeRootViewControllerAfterDismiss(_ from: UIViewController? = nil, to: UIViewController, completion: ((Bool) -> Void)? = nil) {
+    static func changeRootViewControllerAfterDismiss(_ from: UIViewController? = nil, to: UIViewController, completion: ((Bool) -> Void)? = nil) {
         if let presenting = from?.presentingViewController {
             presenting.view.alpha = 0
             from?.dismiss(animated: false, completion: {
@@ -83,27 +83,27 @@ public extension UIApplication {
         }
     }
 
-    public static func makePhoneCall(_ phoneNumber: String) -> Bool {
+    static func makePhoneCall(_ phoneNumber: String) -> Bool {
         guard let phoneNumberUrl = URL(string: phoneNumber), UIApplication.shared.canOpenURL(phoneNumberUrl) else {
             return false
         }
         return UIApplication.shared.openURL(phoneNumberUrl)
     }
 
-    public static var bundleIdentifier: String {
+    static var bundleIdentifier: String {
         return Bundle.main.bundleIdentifier!
     }
 
     // swiftlint:disable force_cast
-    public static var buildVersion: String {
+    static var buildVersion: String {
         return Bundle.main.infoDictionary!["CFBundleVersion"] as! String
     }
 
-    public static var appVersion: String {
+    static var appVersion: String {
         return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
 
-    public static var bundleName: String {
+    static var bundleName: String {
         return Bundle.main.infoDictionary!["CFBundleName"] as! String
     }
     // swiftlint:enable force_cast

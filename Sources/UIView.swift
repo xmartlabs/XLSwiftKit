@@ -72,7 +72,7 @@ public extension UIView {
 
      - returns: A view with the stacked views.
      */
-    static public func verticalStackView(_ views: [UIView], alignLeading: Bool = true, alignTrailing: Bool = true, frame: CGRect? = nil, width: CGFloat = UIScreen.main.bounds.width) -> UIView {
+    static func verticalStackView(_ views: [UIView], alignLeading: Bool = true, alignTrailing: Bool = true, frame: CGRect? = nil, width: CGFloat = UIScreen.main.bounds.width) -> UIView {
         guard !views.isEmpty else { return UIView(frame: frame ?? .zero) }
         let view = UIView(frame: frame ?? CGRect(x: 0, y: 0, width: width, height: views.reduce(0, { $0 + $1.frame.height })))
 
