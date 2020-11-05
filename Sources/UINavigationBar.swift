@@ -28,7 +28,7 @@ import Foundation
 
 public extension UINavigationBar {
 
-    public func setTransparent(_ transparent: Bool) {
+    func setTransparent(_ transparent: Bool) {
         if transparent {
             setBackgroundImage(UIImage(), for: .default)
             shadowImage = UIImage()
