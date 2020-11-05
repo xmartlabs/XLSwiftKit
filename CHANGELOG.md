@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to XLSwiftKit will be documented in this file.
 
+### [3.2.0](https://github.com/xmartlabs/XLSwiftKit/releases/tag/3.2.0))
+<!-- Released on 2020-11-5. -->
+
+* Add support for iPhone 12
+
 ### [3.1.0](https://github.com/xmartlabs/XLSwiftKit/releases/tag/3.1.0))
 <!-- Released on 2019-2-14. -->
 
