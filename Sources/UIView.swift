@@ -110,5 +110,24 @@ public extension UIView {
 
         return view
     }
+    
+    // Reduce the code-size of adding visual format based constraints into a view.
+    //
+    // Turns this:
+    //
+    // anyView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-8-[v1]-8-[v2]-8-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v1": someView, "v2": someOtherView]))
+    //
+    // Into this:
+    // anyView.addConstraints(visualFormat: "H:|-8-[v1]-8-[v2]-8-|", views: someView, someOtherView)
+    func addConstraints(visualFormat: String, views: UIView...) {
+        var localViews = [String : UIView]()
+        for (i, view) in views.enumerated() {
+            view.translatesAutoresizingMaskIntoConstraints = false
+            localViews["v\(i + 1)"] = view
+        }
+        
+        
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: visualFormat, options: NSLayoutFormatOptions(), metrics: nil, views: localViews))
+    }
 
 }
